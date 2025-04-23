@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+}
+
+.logo-header{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 0.1%;
+    position: absolute;
+}
+
+.logo-header img{
+    height: 10vh;
+    width: 13vh;
+    border-radius: 14%;
+}
+
+html, body{ 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.logo-header p{
+    color: rgb(79, 89, 110);
+    font-size: large;
+}
+
+.notfound-class{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    color: rgb(32, 33, 33);
+    font-size: large;
+}

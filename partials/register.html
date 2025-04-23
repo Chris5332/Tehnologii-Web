@@ -1,0 +1,31 @@
+<header class="logo-header">
+    <img src="assets/pow-logo.png" alt="PoW logo">
+    <p>Pet Adoption on Web</p>
+</header>
+
+<div class="auth-container">
+    <div class="register-class" id="register">
+        <h1>Set up your account</h1>
+        <form id="register-form" method="post" action="php/register.php">
+            <input type="text" placeholder="Name" id="name-input" name="name">
+            <input type="text" placeholder="Surname" id="surname-input" name="surname">
+            <input type="email" placeholder="Email" id="email-input" name="email">
+            <input type="email" placeholder="Confirm Email" id="confirm-email-input" name="confirm_email">
+            <input type="password" placeholder="Password" id="password-input" name="password">
+            <label class="family-label">
+                <input type="checkbox" id="family-checkbox" name="family">
+                Family account?
+            </label>
+            <button type="submit" id="signup-btn">Sign Up</button>
+        </form>
+    </div>
+    
+    
+    <div class="login-class" id="login">
+        <h1>Already have an account?</h1>
+        <p>Click below to proceed</p>
+        <form>
+            <button type="button" id="signin-btn">Sign In</button>
+        </form>
+    </div>
+</div>
