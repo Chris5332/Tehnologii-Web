@@ -1,3 +1,11 @@
+fetch("php/dashboard.php").then(response => response.json())
+    .then(result => {
+    if(result.success)
+    {
+        pageNavigation("dashboard");//redirect in case of accessing register/login
+    }
+});
+
 document.getElementById("signin-btn").addEventListener("click", () => {
     pageNavigation("login");
 });
