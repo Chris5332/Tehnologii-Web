@@ -111,3 +111,49 @@ html, body{
     background-color: teal;
     color: white;
 }
+
+@media only screen and (max-width: 762px)
+{
+    .auth-container{
+        flex-direction: column;
+        height: auto;
+    }
+
+    .logo-header{
+        position: relative;
+        justify-content: center;
+        padding-top: 5%;
+    }
+
+    .logo-header img{
+        height: 8vh;
+        width: auto;
+    }
+
+    .logo-header p{
+        text-align: center;
+        font-size: medium;
+    }
+
+    .login-class{
+        width: 100%;
+        text-align: center;
+        padding: 7%;
+    }
+
+    .register-class{
+        width: 100%;
+        text-align: center;
+        padding: 7%;
+    }
+
+    .login-class button,.login-class input,.register-class button{
+        width: 90vw;
+        height: 8vh;
+    }
+
+    .login-class form input{
+        margin-bottom: 5vh;
+    }
+
+}

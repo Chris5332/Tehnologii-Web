@@ -131,7 +131,7 @@ $result=$query->execute();
 
 if($result)
 {
-    $query=$db->prepare("SELECT id, name, admin FROM users WHERE email = :email");
+    $query=$db->prepare("SELECT id, name, admin, family FROM users WHERE email = :email");
     $query->bindValue(':email',$email,SQLITE3_TEXT);
     $result=$query->execute();
     $user=$result->fetchArray(SQLITE3_ASSOC);
@@ -139,6 +139,7 @@ if($result)
     $_SESSION['user_id']=$user['id'];
     $_SESSION['user_name']=$user['name'];
     $_SESSION['is_admin']= ($user['admin']===1);
+    $_SESSION['is_family']=($user['family']===1);
 
     echo json_encode(["success" => true, "message" => "Account created with no errors!", "user_id" => $user['id']]);
 }

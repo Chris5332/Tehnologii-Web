@@ -1,0 +1,26 @@
+.footer-class{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(54, 207, 135);
+    align-items: center;
+    color: white;
+    font-size: large;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    height: 8vh;
+    overflow: hidden;
+}
+
+.footer-left img{
+    height: 7vh;
+    width: 10vh;
+    border-radius: 14%;
+}
+
+.footer-left,.footer-center,.footer-right{
+    align-items: center;
+    height: 100%;
+    display: flex;
+    padding: 1%;
+}

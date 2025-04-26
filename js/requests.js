@@ -1,12 +1,12 @@
 fetch("partials/header.html").then(response => response.text()).
 then(html => {
-    document.getElementById("dashboard-header").innerHTML=html;
+    document.getElementById("requests-header").innerHTML=html;
 
     const allButtons=document.querySelectorAll(".topnav button");
     allButtons.forEach(btn => btn.classList.remove("active-btn"));
-    const home=document.getElementById("home-btn");
-    if(home)
-        home.classList.add("active-btn");
+    const requests=document.getElementById("requests-btn");
+    if(requests)
+        requests.classList.add("active-btn");
 
     const oldStyle=document.getElementById("header-style");
     if(oldStyle)
@@ -18,13 +18,13 @@ then(html => {
     headerLink.id="header-style";
     document.head.appendChild(headerLink);
 
-    const oldScript=document.getElementById("dash-script");
+    const oldScript=document.getElementById("requests-script");
     if(oldScript)
       oldScript.remove();
 
     const script=document.createElement("script");
     script.src=`js/header.js`;
-    script.id="dash-script";
+    script.id="requests-script";
     document.body.appendChild(script);
 
 })
@@ -33,7 +33,7 @@ then(html => {
 
 fetch("partials/footer.html").then(response => response.text()).
 then(html => {
-    document.getElementById("dashboard-footer").innerHTML=html;
+    document.getElementById("requests-footer").innerHTML=html;
 
     const oldFooterStyle=document.getElementById("footer-style");
     if(oldFooterStyle)
@@ -48,7 +48,7 @@ then(html => {
 .catch(error=> console.log('Error in footer.html: ', error));
 
 
-fetch("php/dashboard.php").then(response => response.json())
+fetch("php/requests.php").then(response => response.json())
 .then(result => {
     if(result.success)
     {

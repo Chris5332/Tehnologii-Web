@@ -1,15 +1,23 @@
-const validPages = ["login","register","dashboard","notfound"];
+const validPages = ["login","register","dashboard","addpets","mypets","browse","requests","panel","notfound"];
 
 window.onload = () => {
-  if(!location.hash)
-    location.hash="login";  
-
-  const pageHash=location.hash.substring(1);
-
-  if(validPages.includes(pageHash))
-    loadPage(pageHash);
+  if (!location.hash) {
+    fetch("php/dashboard.php").then(response => response.json())
+      .then(result => {
+        if (result.success) 
+        { location.hash = "dashboard"; loadPage("dashboard"); } 
+        else 
+        { location.hash = "login"; loadPage("login"); }
+      });
+  } 
   else
-    loadPage("notfound");
+  {
+    const pageHash = location.hash.substring(1);
+    if (validPages.includes(pageHash))
+      loadPage(pageHash);
+    else
+      loadPage("notfound");
+  }
 };
 
 window.onhashchange = () => {
@@ -31,6 +39,43 @@ function loadPage(pageName){
   fetch(`partials/${pageName}.html`).then(result => result.text()).then(html => {
     document.getElementById("main-content").innerHTML = html;
 
+    if(pageName==="dashboard")
+    {
+      const home=document.getElementById("home-btn");
+      if(home)
+        home.classList.add("active-btn");
+    }
+    else if(pageName==="addpets")
+    {
+      const addpets=document.getElementById("addpets-btn");
+      if(addpets)
+        addpets.classList.add("active-btn");
+    }
+    else if(pageName==="mypets")
+    {
+      const mypets=document.getElementById("mypets-btn");
+      if(mypets)
+        mypets.classList.add("active-btn");
+    }
+    else if(pageName==="browse")
+    {
+      const browse=document.getElementById("browse-btn");
+      if(browse)
+        browse.classList.add("active-btn");
+    }
+    else if(pageName==="requests")
+    {
+      const requests=document.getElementById("requests-btn");
+      if(requests)
+        requests.classList.add("active-btn");
+    }
+    else if(pageName==="panel")
+    {
+      const panel=document.getElementById("panel-btn");
+      if(panel)
+        panel.classList.add("active-btn");
+    }
+
     const oldStyle=document.getElementById("main-style");
     if(oldStyle)
       oldStyle.remove();
@@ -45,9 +90,10 @@ function loadPage(pageName){
     if(oldScript)
       oldScript.remove();
 
-    const script=document.createElement("script");
+    if(pageName!=="notfound")
+    {const script=document.createElement("script");
     script.src=`js/${pageName}.js`;
     script.id="page-script";
-    document.body.appendChild(script);
+    document.body.appendChild(script);}
   });
 };
