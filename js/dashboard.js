@@ -18,13 +18,13 @@ then(html => {
     headerLink.id="header-style";
     document.head.appendChild(headerLink);
 
-    const oldScript=document.getElementById("dash-script");
+    const oldScript=document.getElementById("header-script");
     if(oldScript)
       oldScript.remove();
 
     const script=document.createElement("script");
     script.src=`js/header.js`;
-    script.id="dash-script";
+    script.id="header-script";
     document.body.appendChild(script);
 
 })

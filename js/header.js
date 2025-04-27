@@ -1,7 +1,18 @@
 document.getElementById("logout-btn").addEventListener("click", () => {
     fetch("php/logout.php").then(response => response.json()).then(result => {
         if(result.success)
+        {
+            const headerCss=document.getElementById("header-style");
+            if(headerCss) headerCss.remove();
+
+            const footerCss=document.getElementById("footer-style");
+            if(footerCss) footerCss.remove();
+
+            const headerJs=document.getElementById("header-script");
+            if(headerJs) headerJs.remove();
+
             pageNavigation("login");
+        }
     })
     .catch(error => console.log("Logout error: " + error));
 });
