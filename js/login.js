@@ -10,7 +10,7 @@ document.getElementById("signup-btn").addEventListener("click", () => {
     pageNavigation("register");
 });
 
-document.getElementById("login-form").addEventListener("submit", async function(event){
+document.getElementById("login-form").addEventListener("submit", function(event){
     event.preventDefault();
 
     const form=document.getElementById("login-form");

@@ -1,18 +1,52 @@
 <header id="addpets-header"></header>
 
 <main class="addpets-content" id="addpets-main">
-    <h1>1.Add Pets</h1>
-    <h1>2.Add Pets</h1>
-    <h1>3.Add Pets</h1>
-    <h1>4.Add Pets</h1>
-    <h1>5.Add Pets</h1>
-    <h1>6.Add Pets</h1>
-    <h1>7.Add Pets</h1>
-    <h1>8.Add Pets</h1>
-    <h1>9.Add Pets</h1>
-    <h1>10.Add Pets</h1>
-    <h1>11.Add Pets</h1>
-    <h1>12.Add Pets</h1>
+    <div class="addpets-class" id="addpets">
+        <h1>Add new Pets</h1>
+        <form id="addpets-form" method="post" action="php/addpets.php" enctype="multipart/form-data">
+            <p>Enter the name of your pet(s)</p>
+            <input type="text" placeholder="Name" id="name-input" name="name">
+
+            <p>Select its birthdate</p>
+            <input type="date" placeholder="Birth" id="birth-input" name="birth">
+
+            <p>Enter its species</p>
+            <input type="text" placeholder="Species" id="species-input" name="species">
+
+            <p>Enter its breed</p>
+            <input type="text" placeholder="Breed" id="breed-input" name="breed">
+
+            <p>Select its health status</p>
+            <select id="health-input" name="health" required>
+                <option value="" disabled selected>Select health status:</option>
+                <option value="healthy">Healthy</option>
+                <option value="injured">Injured</option>
+                <option value="sick">Sick</option>
+            </select>
+
+            <p>Enter the pickup address</p>
+            <input type="text" placeholder="Pickup adress" id="pickup-input" name="pickup">
+
+            <p>Upload photos<span><small>(max. 9 photos)</small></span></p>
+            <input type="file" name="photos[]" id="photo-input" accept="image/*" multiple>
+            <ol id="photo-list" class="photo-list"></ol>
+
+            <p>Upload videos<span><small>(max. 3 videos)</small></span></p>
+            <input type="file" name="videos[]" id="video-input" accept="video/*" multiple>
+            <ol id="video-list" class="video-list"></ol>
+
+            <p>Upload audio recordings<span><small>(max. 3 recordings)</small></span></p>
+            <input type="file" name="audios[]" id="audio-input" accept="audio/*" multiple>
+            <ol id="audio-list" class="audio-list"></ol>
+
+            <label class="group-label">
+                <input type="checkbox" id="group-checkbox" name="group">
+                <label for="group-checkbox">Group of animals?</label>
+            </label>
+
+            <button type="submit" id="addpets">Add Pet</button>
+        </form>
+    </div>
 </main>
 
 <footer id="addpets-footer"></footer>

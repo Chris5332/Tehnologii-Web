@@ -72,3 +72,15 @@ fetch("php/panel.php").then(response => response.json())
     else
         pageNavigation("login");// redirect if not logged in
 }).catch(error=> console.log('Error: ', error));
+
+
+document.getElementById("db-init-btn").addEventListener("click", () => {
+    fetch("scripts/init_db.php").then(response => response.json()).then(result => {
+        alert(result.message);
+    }).catch(error => console.log("DB initialization error: " + error));
+});
+
+fetch("scripts/init_db.php").then(response => response.json()).then(result => {
+    if(!result.success)
+        pageNavigation("notfound");
+}).catch(error=> console.log('Error: ', error))
