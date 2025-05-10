@@ -29,7 +29,7 @@ document.getElementById("signin-btn").addEventListener("click", () => {
     }
 })();
 
-document.getElementById("register-form").addEventListener("submit", async function(event) {
+document.getElementById("register-form").addEventListener("submit", function(event) {
     event.preventDefault();
 
     const form=document.getElementById("register-form");

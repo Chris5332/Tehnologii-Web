@@ -26,6 +26,7 @@ html, body{
 .logo-header p{
     color: rgb(79, 89, 110);
     font-size: large;
+    text-align: center;
 }
 
 .auth-container{
@@ -43,6 +44,7 @@ html, body{
     background-color: white;
     color: rgb(32, 33, 33);
     font-size: large;
+    text-align: center;
 }
 
 .family-label{
@@ -106,6 +108,7 @@ html, body{
     align-items: center;
     background-color: rgb(54, 207, 135);
     color: white;
+    text-align: center;
 }
 
 .login-class button{
@@ -146,19 +149,16 @@ html, body{
     }
 
     .logo-header p{
-        text-align: center;
         font-size: medium;
     }
 
     .login-class{
         width: 100%;
-        text-align: center;
         padding: 7%;
     }
 
     .register-class{
         width: 100%;
-        text-align: center;
         padding: 7%;
     }
 

@@ -1,3 +1,153 @@
 .addpets-content{
     margin-bottom: 12vh;
+    color: rgb(32, 33, 33);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.addpets-class{
+    font-size: large;
+    color: rgb(32, 33, 33);
+}
+
+.addpets-class form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addpets-class input[type="text"],
+.addpets-class input[type="date"]{
+    height: 9vh;
+    width: 45vw;
+    border-radius: 50px;
+    border: 0px;
+    background-color: rgb(239,245,243);
+    font-size: large;
+    padding-left: 5%;
+    padding-right: 5%;
+    color: rgb(32, 33, 33);
+}
+
+.addpets-class button{
+    cursor: pointer;
+    height: 9vh;
+    width: 20vw;
+    background-color: rgb(54, 207, 135);
+    color: white;
+    border-radius: 50px;
+    border: 0px;
+    font-size: medium;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.addpets-class button:hover{
+    background-color: teal;
+}
+
+.group-label{
+    display: flex;
+    align-self: center;
+    color: rgb(32, 33, 33);
+    font-size: large;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.group-label input[type="checkbox"]{
+    width: 3vw;
+    height: 3vh;
+}
+
+.group-label label{
+    font-size: larger;
+}
+
+.addpets-class select{
+    cursor: pointer;
+    height: 9vh;
+    width: 50vw;
+    border-radius: 50px;
+    border: 0px;
+    background-color: rgb(239,245,243);
+    font-size: large;
+    padding-left: 5%;
+    color: rgb(32, 33, 33);
+}
+
+.addpets-class input[type="file"]{
+    height: 9vh;
+    width: 45vw;
+    border-radius: 50px;
+    border: 0px;
+    background-color: rgb(239,245,243);
+    font-size: large;
+    padding-left: 5%;
+    padding-right: 5%;
+    cursor: pointer;
+    text-align: center;
+    color: rgb(32, 33, 33);
+    line-height: 9vh;
+}
+
+.addpets-class input[type="file"]::file-selector-button{
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: rgb(32, 33, 33);
+}
+
+.addpets-class button,.addpets-class input,.addpets-class select{
+    margin-bottom: 3vh;
+}
+
+.addpets-class p{
+    font-size: larger;
+}
+
+.photo-list, .video-list, .audio-list{
+    list-style-position: inside;
+    width: 47vw;
+    color: rgb(32, 33, 33);
+    background-color: rgb(239,245,243);
+    border-radius: 25px;
+    border: 0px;
+    text-align: start;
+}
+
+.photo-list li, .video-list li, .audio-list li{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+@media only screen and (max-width: 762px)
+{
+    .addpets-class button{
+        width: 87vw;
+        height: 8vh;
+    }
+
+    .addpets-class input[type="text"],
+    .addpets-class input[type="date"]{
+        width: 80vw;
+        height: 8vh;
+    }
+
+    .addpets-class select{
+        width: 87vw;
+        height: 8vh;
+    }
+
+    .addpets-class input[type="file"]{
+        width: 80vw;
+        height: 8vh;
+    }
+
+    .photo-list, .video-list, .audio-list{
+        width: 84vw;
+    }
+
 }

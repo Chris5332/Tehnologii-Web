@@ -48,7 +48,7 @@ then(html => {
 .catch(error=> console.log('Error in footer.html: ', error));
 
 
-fetch("php/addpets.php").then(response => response.json())
+fetch("php/user_status.php").then(response => response.json())
 .then(result => {
     if(result.success)
     {
@@ -71,3 +71,83 @@ fetch("php/addpets.php").then(response => response.json())
     else
         pageNavigation("login");// redirect if not logged in
 }).catch(error=> console.log('Error: ', error));
+
+
+document.getElementById("photo-input").addEventListener("change", function () {
+    const list=document.getElementById("photo-list");
+    list.innerHTML='';
+    
+    const files=this.files;
+
+    for(let i=0; i<files.length;i++)
+    {
+        const item=document.createElement("li");
+        item.textContent=files[i].name;
+        list.appendChild(item);
+    }
+});
+
+document.getElementById("video-input").addEventListener("change", function () {
+    const list=document.getElementById("video-list");
+    list.innerHTML='';
+
+    const files=this.files;
+
+    for(let i=0;i<files.length;i++)
+    {
+        const item=document.createElement("li");
+        item.textContent=files[i].name;
+        list.appendChild(item);
+    }
+});
+
+document.getElementById("audio-input").addEventListener("change", function () {
+    const list=document.getElementById("audio-list");
+    list.innerHTML='';
+
+    const files=this.files;
+
+    for(let i=0;i<files.length;i++)
+    {
+        const item=document.createElement("li");
+        item.textContent=files[i].name;
+        list.appendChild(item);
+    }
+});
+
+document.getElementById("addpets-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const form=document.getElementById("addpets-form");
+    const formData= new FormData(form);
+
+    let totalSize=0;
+    ['photos[]', 'videos[]', 'audios[]'].forEach(field => {
+        const files=formData.getAll(field);
+        files.forEach(file => {
+            if(file instanceof File)
+                totalSize=totalSize+file.size;
+        });
+    });
+
+    if(totalSize>200*1024*1024)
+    {
+        alert("Total size for uploads exceeds 200MB! Remove some files.");
+        return;
+    }
+
+    fetch('php/addpets.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.json())
+    .then(result => {
+        if(result.success)
+        {
+            alert(result.message);
+            location.reload();
+        }
+        else if(result.errors)
+            alert(result.errors.join("\n"));
+    })
+    .catch(error => console.log('Error adding pets: ', error));
+});
