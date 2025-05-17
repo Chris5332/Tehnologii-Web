@@ -1,3 +1,100 @@
 .mypets-content{
     margin-bottom: 12vh;
 }
+
+.mypets-content h1{
+    color: rgb(32, 33, 33);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noPets-class{
+    color: rgb(32, 33, 33);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+    font-size: 20px;
+}
+
+.pet-card{
+    background-color: rgba(226, 227, 221, 0.67);
+    margin-bottom: 2vh;
+    display: flex;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border-radius: 5px;
+}
+
+.pet-img{
+    height: 33vh;
+    width: 34vw;
+    max-width: 187px;
+    border-top-left-radius: 10%;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    margin-right: 5vh;
+}
+
+.button-view{
+    margin-left: auto;
+    margin-right: 1vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: none;
+    background-color: rgb(54, 207, 135);
+    cursor: pointer;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+    font-size: large;
+    transition: 0.2s;
+}
+
+.button-view:hover{
+    background-color: teal;
+}
+
+.container-texts {
+    color: rgb(32, 33, 33);
+    font-size: large;
+}
+
+.container-texts p:first-child{
+    color: rgb(32, 33, 33);
+    font-size: larger;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px)
+{
+    .pet-card{
+        flex-direction: column;
+    }
+
+    .pet-img{
+        height: 30vh;
+        width: auto;
+        max-width: 90vw;
+        margin-right: 0vh;
+        padding-right: 1vh;
+    }
+
+    .container-texts {
+        margin-left: 1vw;
+    }
+
+    .button-view{
+        margin-left: 1vw;
+        border-radius: 0px;
+        height: 5vh;
+        border-radius: 5px;
+    }
+}

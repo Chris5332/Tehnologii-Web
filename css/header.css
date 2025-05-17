@@ -22,7 +22,7 @@ body, html{
 }
 
 .topnav button:hover{
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(115, 115, 115);
     color: rgb(51, 51, 51);
 }
 
@@ -35,7 +35,7 @@ body, html{
     color: white;
 }
 
-@media only screen and (max-width: 762px)
+@media only screen and (max-width: 942px)
 {
     .topnav button:not(:first-child) {display: none;}
     .topnav button.icon {
@@ -44,7 +44,7 @@ body, html{
     }
 }
 
-@media only screen and (max-width: 762px)
+@media only screen and (max-width: 942px)
 {
     .topnav.responsive {position: relative;}
     .topnav.responsive button.icon {
@@ -58,4 +58,14 @@ body, html{
         text-align: left;
         width: 100%;
     }
+}
+
+@media only screen and (max-width: 200px)
+{
+    .topnav button{display: none;}
+}
+
+.nav-icon{
+    width: 16px;
+    height: 16px;
 }

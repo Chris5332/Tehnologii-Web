@@ -50,7 +50,7 @@ html, body{
 .login-class button{
     cursor: pointer;
     height: 9vh;
-    width: 12vw;
+    width: 20vw;
     background-color: rgb(54, 207, 135);
     color: white;
     border-radius: 50px;
@@ -99,7 +99,7 @@ html, body{
 .register-class button{
     cursor: pointer;
     height: 9vh;
-    width: 12vw;
+    width: 20vw;
     background-color: white;
     color: rgb(32, 33, 33);
     border-radius: 50px;
@@ -115,7 +115,7 @@ html, body{
     color: white;
 }
 
-@media only screen and (max-width: 762px)
+@media only screen and (max-width: 821px)
 {
     .auth-container{
         flex-direction: column;

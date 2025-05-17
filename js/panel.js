@@ -48,7 +48,7 @@ then(html => {
 .catch(error=> console.log('Error in footer.html: ', error));
 
 
-fetch("php/panel.php").then(response => response.json())
+fetch("php/user_status.php").then(response => response.json())
 .then(result => {
     if(result.success)
     {
@@ -76,11 +76,30 @@ fetch("php/panel.php").then(response => response.json())
 
 document.getElementById("db-init-btn").addEventListener("click", () => {
     fetch("scripts/init_db.php").then(response => response.json()).then(result => {
-        alert(result.message);
+        if(result.success)
+        {
+            alert(result.message);
+        }
+        else
+        {
+            pageNavigation("notfound");
+        }
     }).catch(error => console.log("DB initialization error: " + error));
 });
 
-fetch("scripts/init_db.php").then(response => response.json()).then(result => {
-    if(!result.success)
-        pageNavigation("notfound");
-}).catch(error=> console.log('Error: ', error))
+document.getElementById("deletePet-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const id=document.getElementById("deletePet-input").value;
+
+    const formData=new FormData();
+    formData.append("deletePet",id);
+
+    fetch("php/panel.php",{
+        method: "POST",
+        body: formData
+    }).then(response => response.json())
+    .then(result => {
+        alert(result.message);
+    }).catch(error => console.log("Deleting pet error: " + error));
+});

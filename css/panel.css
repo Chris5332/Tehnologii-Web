@@ -10,7 +10,7 @@
 .panel-content button{
     cursor: pointer;
     height: 9vh;
-    width: 20vw;
+    width: 25vw;
     background-color: rgb(54, 207, 135);
     color: white;
     border-radius: 50px;
@@ -24,10 +24,37 @@
     background-color: teal;
 }
 
-@media only screen and (max-width: 762px)
+#delete-btn{
+    background-color: rgb(255, 67, 67);
+}
+
+#delete-btn:hover{
+    background-color: darkred;
+}
+
+.panel-content form input[type="text"]{
+    height: 9vh;
+    width: 21vw;
+    border-radius: 50px;
+    border: 0px;
+    background-color: rgb(239,245,243);
+    font-size: large;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+@media only screen and (max-width: 821px)
 {
     .panel-content button{
         width: 90vw;
+        height: 8vh;
+    }
+
+    .panel-content form input[type="text"]{
+        width: 80vw;
         height: 8vh;
     }
 }

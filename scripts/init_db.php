@@ -38,6 +38,7 @@ $db->exec('CREATE TABLE IF NOT EXISTS "animals"(
     "is_group" INTEGER DEFAULT 0,
     "owner_id" INTEGER NOT NULL,
     "created_at" TIME DEFAULT CURRENT_TIMESTAMP,
+    "region" TEXT,
     FOREIGN KEY(owner_id) REFERENCES users(id)
 )');
 
@@ -53,7 +54,7 @@ $db->exec('CREATE TABLE IF NOT EXISTS "medical_history"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     "animal_id" INTEGER NOT NULL,
     "description" TEXT NOT NULL,
-    "treatment" TEXT,
+    "treatment" TEXT NOT NULL,
     "date" DATE NOT NULL,
     FOREIGN KEY(animal_id) REFERENCES animals(id)
 )');

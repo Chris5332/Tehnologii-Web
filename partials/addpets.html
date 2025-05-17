@@ -24,6 +24,17 @@
                 <option value="sick">Sick</option>
             </select>
 
+            <p>Select its region</p>
+            <select id="region-input" name="region" required>
+                <option value="" disabled selected>Select region:</option>
+                <option value="botosani">Botosani</option>
+                <option value="bacau">Bacau</option>
+                <option value="galati">Galati</option>
+                <option value="iasi">Iasi</option>
+                <option value="neamt">Neamt</option>
+                <option value="suceava">Suceava</option>
+            </select>
+
             <p>Enter the pickup address</p>
             <input type="text" placeholder="Pickup adress" id="pickup-input" name="pickup">
 
@@ -40,7 +51,7 @@
             <ol id="audio-list" class="audio-list"></ol>
 
             <label class="group-label">
-                <input type="checkbox" id="group-checkbox" name="group">
+                <input type="checkbox" id="group-checkbox" name="is_group" value="1">
                 <label for="group-checkbox">Group of animals?</label>
             </label>
 
