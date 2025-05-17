@@ -3,6 +3,11 @@
 <main class="panel-content" id="panel-main">
     <h1>Run the database initialization script</h1>
     <button type="button" id="db-init-btn">Run Script</button>
+
+    <form id="deletePet-form" method="post" action="php/panel.php">
+        <input type="text" placeholder="Pet id" id="deletePet-input" name="deletePet">
+        <button type="submit" id="delete-btn">Delete Pet</button>
+    </form>
 </main>
 
 <footer id="panel-footer"></footer>

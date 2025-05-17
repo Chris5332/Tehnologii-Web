@@ -22,6 +22,7 @@ if(!isset($_POST['birth'])) { echo json_encode(["success" => false, "message" =>
 if(!isset($_POST['species'])) { echo json_encode(["success" => false, "message" => "Missing field: species"]); exit;}
 if(!isset($_POST['breed'])) { echo json_encode(["success" => false, "message" => "Missing field: breed"]); exit;}
 if(!isset($_POST['health'])) { echo json_encode(["success" => false, "message" => "Missing field: health"]); exit;}
+if(!isset($_POST['region'])) { echo json_encode(["success" => false, "message" => "Missing field: region"]); exit;}
 if(!isset($_POST['pickup'])) { echo json_encode(["success" => false, "message" => "Missing field: pickup"]); exit;}
 
 $name=trim($_POST['name']);
@@ -29,6 +30,7 @@ $birth=$_POST['birth'];
 $species=trim($_POST['species']);
 $breed=trim($_POST['breed']);
 $health=$_POST['health'];
+$region=$_POST['region'];
 $pickup=trim($_POST['pickup']);
 if(!isset($_POST['is_group']))
     $is_group=0; else $is_group=1;
@@ -43,8 +45,8 @@ else if(!preg_match("/^([A-Z][a-z]+)(\s[A-Z][a-z]+)*$/", $name))
     $errors[]="Each word in Name must start with a capital letter and contain only lower letters!";
 else if(strlen($name)<2)
     $errors[]="Name must have at least 2 letters!";
-else if(strlen($name)>25)
-    $errors[]="Name must be less than 25 letters!";
+else if(strlen($name)>15)
+    $errors[]="Name must be less than 15 letters!";
 
 if($birth === '')
     $errors[]="Birth date can't be empty!";
@@ -58,8 +60,8 @@ else if(!preg_match("/^([A-Z][a-z]+)(\s[A-Z][a-z]+)*$/", $species))
     $errors[]="Each word in Species must start with a capital letter and contain only lower letters!";
 else if(strlen($species)<2)
     $errors[]="Species must have at least 2 letters!";
-else if(strlen($species)>25)
-    $errors[]="Species must be less than 25 letters!";
+else if(strlen($species)>15)
+    $errors[]="Species must be less than 15 letters!";
 
 
 if($breed==='')
@@ -92,13 +94,14 @@ else if(strlen($pickup)>40)
 if(!empty($errors)) { echo json_encode(["success" => false, "errors" => $errors]); exit;}
 
 
-$query=$db->prepare('INSERT INTO animals(name, birth_date, species, breed, health_status, pickup_address, is_group, owner_id) 
-                    VALUES(:name, :birth, :species, :breed, :health, :pickup, :is_group, :user_id)');
+$query=$db->prepare('INSERT INTO animals(name, birth_date, species, breed, health_status, region, pickup_address, is_group, owner_id) 
+                    VALUES(:name, :birth, :species, :breed, :health, :region, :pickup, :is_group, :user_id)');
 $query->bindValue(':name',$name,SQLITE3_TEXT);
 $query->bindValue(':birth',$birth,SQLITE3_TEXT);
 $query->bindValue(':species',$species,SQLITE3_TEXT);
 $query->bindValue(':breed',$breed,SQLITE3_TEXT);
 $query->bindValue(':health',$health,SQLITE3_TEXT);
+$query->bindValue(':region',$region,SQLITE3_TEXT);
 $query->bindValue(':pickup',$pickup,SQLITE3_TEXT);
 $query->bindValue(':is_group',$is_group,SQLITE3_INTEGER);
 $query->bindValue(':user_id',$user_id,SQLITE3_INTEGER);
@@ -170,6 +173,7 @@ foreach($media_files as $key => $field)
 
         $fileName=$animal_id . '_' . uniqid() . '.' . $extension;
         $path="../uploads/{$type}s/$fileName";
+        $pathForMedia="uploads/{$type}s/$fileName";
 
         if(!move_uploaded_file($files['tmp_name'][$i], $path))
         {
@@ -181,7 +185,7 @@ foreach($media_files as $key => $field)
         $query=$db->prepare('INSERT INTO media(animal_id, type, path) VALUES(:animal_id, :type, :path)');
         $query->bindValue(':animal_id',$animal_id,SQLITE3_INTEGER);
         $query->bindValue(':type',$type,SQLITE3_TEXT);
-        $query->bindValue(':path',$path,SQLITE3_TEXT);
+        $query->bindValue(':path',$pathForMedia,SQLITE3_TEXT);
 
         $result=$query->execute();
 
