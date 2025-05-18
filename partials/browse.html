@@ -1,18 +1,25 @@
 <header id="browse-header"></header>
 
 <main class="browse-content" id="browse-main">
-    <h1>1.Browse</h1>
-    <h1>2.Browse</h1>
-    <h1>3.Browse</h1>
-    <h1>4.Browse</h1>
-    <h1>5.Browse</h1>
-    <h1>6.Browse</h1>
-    <h1>7.Browse</h1>
-    <h1>8.Browse</h1>
-    <h1>9.Browse</h1>
-    <h1>10.Browse</h1>
-    <h1>11.Browse</h1>
-    <h1>12.Browse</h1>
+    <h1>All pets are here:</h1>
+    <select id="filter-select" name="filterSelect">
+        <option value="all" selected>All Pets</option>
+        <option value="group">Group of Pets</option>
+        <option value="single">Single Pets</option>
+        <option value="mostrecent">Most recent</option>
+        <option value="" disabled>Health status:</option>
+        <option value="healthy">Healthy</option>
+        <option value="injured">Injured</option>
+        <option value="sick">Sick</option>
+        <option value="" disabled>Region:</option>
+        <option value="botosani">Botosani</option>
+        <option value="bacau">Bacau</option>
+        <option value="galati">Galati</option>
+        <option value="iasi">Iasi</option>
+        <option value="neamt">Neamt</option>
+        <option value="suceava">Suceava</option>
+    </select>
+    <div class="mypets-class" id="mypets"></div>
 </main>
 
 <footer id="browse-footer"></footer>
