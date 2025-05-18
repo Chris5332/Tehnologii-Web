@@ -10,7 +10,7 @@ if(!isset($_SESSION['user_id']) || !isset($_SESSION['user_name']))
 $db = new SQLite3('../data/pow_db.sqlite');
 $query=$db->prepare('SELECT a.*,(SELECT path FROM media m WHERE m.animal_id=a.id AND m.type="photo" LIMIT 1) 
 AS image_path FROM animals a WHERE a.owner_id=:userID');
-$query->bindValue(':userID',$_SESSION['user_id'],SQLITE3_TEXT);
+$query->bindValue(':userID',$_SESSION['user_id'],SQLITE3_INTEGER);
 $result=$query->execute();
 
 if(!$result)

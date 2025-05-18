@@ -1,4 +1,4 @@
-.animal-content{
+.animal-public-content{
     margin-bottom: 12vh;
 }
 
@@ -35,56 +35,6 @@
     margin-left: 3vh;
 }
 
-.container-texts button{
-    color: white;
-    margin-left: 3vh;
-    margin-bottom: 3vh;
-    cursor: pointer;
-    height: 5vh;
-    width: 25vw;
-    background-color: rgb(54, 207, 135);
-    border-radius: 50px;
-    border: 0px;
-    font-size: 20px;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.container-texts button:hover{
-    background-color:teal;
-}
-
-.container-texts input{
-    height: 5vh;
-    width: 47vw;
-    border-radius: 50px;
-    border: 0px;
-    background-color: rgb(239,245,243);
-    border: 1px dotted rgb(54, 207, 135);
-    font-size: large;
-    padding-left: 3vh;
-    padding-right: 3vh;
-    margin-left: 3vh;
-    margin-top: -1vh;
-    margin-bottom: 2vh;
-}
-
-.container-texts select{
-    cursor: pointer;
-    height: 5vh;
-    width: 50vw;
-    border-radius: 50px;
-    border: 0px;
-    background-color: rgb(239,245,243);
-    border: 1px dotted rgb(54, 207, 135);
-    font-size: large;
-    padding-left: 3vh;
-    color: rgb(32, 33, 33);
-    margin-left: 3vh;
-    margin-top: -1vh;
-    margin-bottom: 2vh;
-}
-
 .nameRow,.birthRow,.speciesRow,.breedRow,.healthRow,.regionRow,.pickupRow,.descriptionRow,.feedingRow,
 .restrictionsRow,.relationshipRow,.medicalRow{
     display: flex;
@@ -108,45 +58,7 @@
     margin-left: 6vh;
 }
 
-.uploadForm,
-.upload2Form,
-.upload3Form{
-    display: flex;
-    flex-direction: column;
-}
-
-.slideShowImages input[type="file"],
-.videosContainer input[type="file"],
-.audiosContainer input[type="file"]{
-    height: 7vh;
-    width: 39vw;
-    border-radius: 50px;
-    border: 0px;
-    background-color: rgb(239,245,243);
-    border: 1px dotted rgb(54, 207, 135);
-    font-size: large;
-    padding-left: 5%;
-    padding-right: 5%;
-    cursor: pointer;
-    color: rgb(32, 33, 33);
-    line-height: 9vh;
-    margin-left: 6vh;
-    margin-bottom: 3vh;
-    padding-bottom: 1vh;
-}
-
-.slideShowImages input[type="file"]::file-selector-button,
-.videosContainer input[type="file"]::file-selector-button,
-.audiosContainer input[type="file"]::file-selector-button{
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    color: rgb(32, 33, 33);
-}
-
-.slideShowImages button,
-.videosContainer button,
-.audiosContainer button{
+.slideShowImages button{
     color: white;
     margin-left: 6vh;
     cursor: pointer;
@@ -167,33 +79,11 @@
     font-size: 30px;
 }
 
-.slideShowImages button:hover,
-.videosContainer button:hover,
-.audiosContainer button:hover{
+.slideShowImages button:hover{
     background-color:teal;
 }
 
-.photo-list,
-.video-list,
-.audio-list{
-    margin-left: 6vh;
-    list-style-position: inside;
-    width: 46vw;
-    color: rgb(32, 33, 33);
-    background-color: rgb(239,245,243);
-    border-radius: 25px;
-    border: 0px;
-    text-align: start;
-}
-
-.photo-list li,
-.video-list li,
-.audio-list li{
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-}
-
-#delete-btn{
+#request-btn{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,7 +93,7 @@
     cursor: pointer;
     height: 5vh;
     width: 25vw;
-    background-color: rgb(255, 67, 67);
+    background-color: rgb(54, 207, 135);
     border-radius: 50px;
     border: 0px;
     font-size: 20px;
@@ -211,8 +101,8 @@
     transition: 0.2s;
 }
 
-#delete-btn:hover{
-    background-color: darkred;
+#request-btn:hover{
+    background-color: teal;
 }
 
 #warnText-field{
@@ -232,7 +122,7 @@
     cursor: pointer;
     height: 5vh;
     width: 25vw;
-    background-color: darkred;
+    background-color: teal;
     border-radius: 50px;
     border: 0px;
     font-size: 20px;
@@ -242,7 +132,7 @@
 }
 
 #noBtn:hover,#yesBtn:hover{
-    background-color: rgb(255, 67, 67);
+    background-color: rgb(54, 207, 135);
 }
 
 #audioItem{
@@ -280,32 +170,12 @@
         width: 50vw;
     }
 
-    .container-texts input{
-        height: 7vh;
-        width: 65vw;
-    }
-
-    .container-texts select{
-        height: 7vh;
-        width: 70vw;
-    }
-
-    .slideShowImages input[type="file"],
-    .videosContainer input[type="file"],
-    .audiosContainer input[type="file"]{
-        height: 7vh;
-        width: 60vw;
-        padding-bottom: 2vh;
-    }
-
-    .slideShowImages button,
-    .videosContainer button,
-    .audiosContainer button{
+    .slideShowImages button{
         height: 7vh;
         width: 50vw;
     }
 
-    #delete-btn{
+    #request-btn{
         height: 7vh;
         width: 50vw;
     }

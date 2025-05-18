@@ -48,7 +48,7 @@ then(html => {
 .catch(error=> console.log('Error in footer.html: ', error));
 
 
-fetch("php/browse.php").then(response => response.json())
+fetch("php/user_status.php").then(response => response.json())
 .then(result => {
     if(result.success)
     {
@@ -71,3 +71,80 @@ fetch("php/browse.php").then(response => response.json())
     else
         pageNavigation("login");// redirect if not logged in
 }).catch(error=> console.log('Error: ', error));
+
+showFilterOption("all");
+
+function showFilterOption(option){
+    fetch(`php/browse.php?filter=${option}`).then(response => response.json())
+    .then(result => {
+        if(result.success)
+        {
+            const display=document.getElementById("mypets");
+            display.innerHTML="";
+
+            if(result.data.length===0)
+            {
+                const noPets=document.createElement("p");
+                noPets.textContent="No pets found!";
+                noPets.className="noPets-class";
+                display.appendChild(noPets);
+                return;
+            }
+
+            result.data.forEach(pet =>{
+                const card=document.createElement("div");
+                card.className="pet-card";
+
+                const img=document.createElement("img");
+                if(!pet.image_path)
+                    img.src="assets/no-photo.jpg";
+                else
+                    img.src=pet.image_path;
+                img.alt="Pet image";
+                img.className="pet-img";
+                img.draggable=false;
+
+                const containerForTexts=document.createElement("div");
+                containerForTexts.className="container-texts";
+
+                const name=document.createElement("p");
+                name.textContent=pet.name;
+
+                const species=document.createElement("p");
+                species.textContent="Species: "+pet.species;
+
+                const breed=document.createElement("p");
+                breed.textContent="Breed: "+pet.breed;
+
+                const health_status=document.createElement("p");
+                health_status.textContent="Health status: "+pet.health_status;
+
+                const region=document.createElement("p");
+                region.textContent="Region: "+pet.region;
+
+                if(pet.is_group===1)
+                    name.textContent="Group of Pets: "+pet.name;
+
+                containerForTexts.append(name,species,breed,health_status,region);
+
+                const button=document.createElement("button");
+                button.textContent="View Pet";
+                button.className="button-view";
+                button.onclick= ()=>{ pageNavigation(`animal_public?id=${pet.id}`);}
+
+                card.append(img,containerForTexts,button);
+                display.appendChild(card);
+            });
+        }
+        else
+        {
+            display.innerHTML="Error occurred while searching for your pets.";
+        }
+    }).catch(error=> console.log('Error: ', error));
+}
+
+
+document.getElementById("filter-select").addEventListener("change", function () {
+    const option=this.value;
+    showFilterOption(option);
+});

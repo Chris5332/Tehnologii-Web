@@ -1,4 +1,4 @@
-const validPages = ["login","register","dashboard","addpets","mypets","browse","requests","panel","animal","notfound"];
+const validPages = ["login","register","dashboard","addpets","mypets","browse","requests","panel","animal","animal_public","notfound"];
 
 window.onload = () => {
   if (!location.hash) {
