@@ -1,12 +1,12 @@
 fetch("partials/header.html").then(response => response.text()).
 then(html => {
-    document.getElementById("dashboard-header").innerHTML=html;
+    document.getElementById("about-header").innerHTML=html;
 
     const allButtons=document.querySelectorAll(".topnav button");
     allButtons.forEach(btn => btn.classList.remove("active-btn"));
-    const home=document.getElementById("home-btn");
-    if(home)
-        home.classList.add("active-btn");
+    const about=document.getElementById("about-btn");
+    if(about)
+        about.classList.add("active-btn");
 
     const oldStyle=document.getElementById("header-style");
     if(oldStyle)
@@ -33,7 +33,7 @@ then(html => {
 
 fetch("partials/footer.html").then(response => response.text()).
 then(html => {
-    document.getElementById("dashboard-footer").innerHTML=html;
+    document.getElementById("about-footer").innerHTML=html;
 
     const oldFooterStyle=document.getElementById("footer-style");
     if(oldFooterStyle)
@@ -70,23 +70,4 @@ fetch("php/user_status.php").then(response => response.json())
     }
     else
         pageNavigation("login");// redirect if not logged in
-}).catch(error=> console.log('Error: ', error));
-
-fetch('php/getspecies.php').then(response=>response.json()).then(result=>{
-    if(result.success)
-    {
-        const selector=document.getElementById("rss-links");
-
-        result.data.forEach(species => {
-            const li=document.createElement("li");
-
-            const a_tag=document.createElement("a");
-            a_tag.href="php/rss.php?type="+species;
-            a_tag.target="_blank";
-            a_tag.textContent="Latest from "+species;
-
-            li.appendChild(a_tag);
-            selector.appendChild(li);
-        });
-    }
 }).catch(error=> console.log('Error: ', error));

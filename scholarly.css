@@ -1,0 +1,75 @@
+h1{
+    color: rgb(33, 32, 32);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline rgb(54, 207, 135);
+    font-size: 40px;
+}
+
+.main-content ol{
+    list-style-type: none;
+}
+
+.main-content a,.text-content a{
+    text-decoration: none;
+    color: rgb(54, 207, 135);
+    font-size: 25px;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+.main-content a:hover,.text-content a:hover{
+    color: rgb(54, 207, 135);
+    background-color: rgb(51, 51, 51);
+}
+
+.text-content h2,h3{
+    color: teal;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+.text-content p{
+    color: rgb(33, 32, 32);
+    margin-left: 25vh;
+    margin-right: 25vh;
+    font-size: 18px;
+}
+
+.text-content a{
+    text-decoration: none;
+    color: rgb(54, 207, 135);
+    font-size: 25px;
+    margin-left: 25vh;
+    margin-right: 25vh;
+}
+
+#license{
+    margin-bottom: 5vh;
+}
+
+@media only screen and (max-width: 900px)
+{
+    .main-content a,.text-content a, .text-content h2, .text-content h3, .text-content p, .text-content a{
+        margin-left: 10vh;
+        margin-right: 10vh;
+    }
+}
+
+@media only screen and (max-width: 500px)
+{
+    .main-content a,.text-content a, .text-content h2, .text-content h3, .text-content p, .text-content a{
+        margin-left: 5vh;
+        margin-right: 5vh;
+    }
+}
+
+@media only screen and (max-width: 350px)
+{
+    .main-content a,.text-content a, .text-content h2, .text-content h3, .text-content p, .text-content a{
+        margin-left: 1vh;
+        margin-right: 0vh;
+    }
+}

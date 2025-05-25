@@ -48,7 +48,7 @@ then(html => {
 .catch(error=> console.log('Error in footer.html: ', error));
 
 
-fetch("php/requests.php").then(response => response.json())
+fetch("php/user_status.php").then(response => response.json())
 .then(result => {
     if(result.success)
     {
@@ -71,3 +71,165 @@ fetch("php/requests.php").then(response => response.json())
     else
         pageNavigation("login");// redirect if not logged in
 }).catch(error=> console.log('Error: ', error));
+
+showFilterOption("received");
+
+function showFilterOption(option){
+    fetch(`php/requests.php?filter=${option}`).then(response => response.json())
+    .then(result => {
+
+        const display=document.getElementById("requests");
+        if(result.success)
+        {
+            display.innerHTML="";
+
+            if(result.data.length===0)
+            {
+                const noPets=document.createElement("p");
+                noPets.textContent="No requests found!";
+                noPets.className="noPets-class";
+                display.appendChild(noPets);
+                return;
+            }
+
+            result.data.forEach(req =>{
+                const card=document.createElement("div");
+                card.className="req-card";
+
+                const containerForTexts=document.createElement("div");
+                containerForTexts.className="container-texts";
+
+                if(option==="received")
+                {
+                    const message=document.createElement("p");
+                    message.textContent="[(id:"+req.user_id+")";
+                    
+                    if(req.is_family===1)
+                        message.textContent+=" Family: ";
+                    else
+                        message.textContent+=" User: ";
+
+                    message.textContent+=req.user_name+"] requests ";
+
+                    if(req.is_group===1)
+                        message.textContent+="group ";
+                    else
+                        message.textContent+="pet ";
+
+                    message.textContent+=req.animal_name+"(id:"+req.animal_id+").";
+                    containerForTexts.append(message);
+
+                    const buttonAccept=document.createElement("button");
+                    buttonAccept.textContent="Accept";
+                    buttonAccept.className="button-accept";
+
+                    const buttonDecline=document.createElement("button");
+                    buttonDecline.textContent="Decline";
+                    buttonDecline.className="button-decline";
+
+                    buttonAccept.onclick= () => {
+                        const formData=new FormData();
+                        formData.append("field","accept");
+                        formData.append("id",req.request_id);
+
+                        fetch("php/request_respond.php", {
+                            method: 'POST',
+                            body: formData
+                        }).then(response => response.json())
+                        .then(result => {
+                            if(result.success)
+                            {
+                                alert(result.message);
+                                showFilterOption("received");
+                            }
+                            else
+                            {
+                                alert(result.message);
+                            }
+                        })
+                        .catch(error => console.log('Error: ', error));
+                    };
+
+                    buttonDecline.onclick= () => {
+                        const formData=new FormData();
+                        formData.append("field","decline");
+                        formData.append("id",req.request_id);
+
+                        fetch("php/request_respond.php", {
+                            method: 'POST',
+                            body: formData
+                        }).then(response => response.json())
+                        .then(result => {
+                            if(result.success)
+                            {
+                                alert(result.message);
+                                showFilterOption("received");
+                            }
+                            else
+                            {
+                                alert(result.message);
+                            }
+                        })
+                        .catch(error => console.log('Error: ', error));
+                    };
+
+                    card.append(containerForTexts,buttonAccept,buttonDecline);
+                    display.appendChild(card);
+                }
+                else if (option==="sent")
+                {
+                    const message=document.createElement("p");
+                    message.textContent="Requested ";
+
+                    if(req.is_group===1)
+                        message.textContent+=" group: ";
+                    else
+                        message.textContent+=" pet: ";
+
+                    message.textContent+=req.animal_name+"(id:"+req.animal_id+") has been "+req.message+".";
+                    containerForTexts.append(message);
+
+                    const buttonRemoveNotification=document.createElement("button");
+                    buttonRemoveNotification.textContent="Clear notification";
+                    buttonRemoveNotification.className="button-remove-notification";
+
+                    buttonRemoveNotification.onclick= () => {
+                        const formData=new FormData();
+                        formData.append("field","removeNotification");
+                        formData.append("id",req.notification_id);
+
+                        fetch("php/request_respond.php", {
+                            method: 'POST',
+                            body: formData
+                        }).then(response => response.json())
+                        .then(result => {
+                            if(result.success)
+                            {
+                                alert(result.message);
+                                showFilterOption("sent");
+                            }
+                            else
+                            {
+                                alert(result.message);
+                            }
+                        })
+                        .catch(error => console.log('Error: ', error));
+                    };
+
+                    card.append(containerForTexts,buttonRemoveNotification);
+                    display.appendChild(card);
+                }
+            });
+        }
+        else
+        {
+            display.innerHTML="Error occurred while searching for your pets.";
+        }
+    }).catch(error=> console.log('Error: ', error));
+}
+
+
+document.getElementById("filter-select").addEventListener("change", function () {
+    const option=this.value;
+    showFilterOption(option);
+});

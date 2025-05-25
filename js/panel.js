@@ -103,3 +103,7 @@ document.getElementById("deletePet-form").addEventListener("submit", function (e
         alert(result.message);
     }).catch(error => console.log("Deleting pet error: " + error));
 });
+
+document.getElementById("export-csv-btn").addEventListener("click", () => {
+    window.open("php/export_animals_csv.php","_blank");
+});

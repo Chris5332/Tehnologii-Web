@@ -151,3 +151,25 @@ document.getElementById("addpets-form").addEventListener("submit", function(even
     })
     .catch(error => console.log('Error adding pets: ', error));
 });
+
+document.getElementById("import-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const form=document.getElementById("import-form");
+    const formData= new FormData(form);
+
+    fetch('php/import_animals_csv.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.json())
+    .then(result => {
+        if(result.success)
+        {
+            alert(result.message);
+            location.reload();
+        }
+        else if(result.errors)
+            alert(result.errors.join("\n"));
+    })
+    .catch(error => console.log('Error importing pets: ', error));
+});

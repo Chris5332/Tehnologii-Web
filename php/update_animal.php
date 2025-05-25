@@ -207,30 +207,56 @@ else if($field==="description")
     { echo json_encode(["success" => true, "message" => "Description updated successfully."]); exit;}
 }
 
-else if($field==="feeding_schedule")
+else if($field==="saveFeeding")
 {
-    if($value==='')
-        $errors[]="Feeding schedule field can't be empty!";
-    else if (!preg_match("/^[A-Z][\p{L}\p{N} \t\n\r.,;:'\"!?()\-]*$/", $value))
-        $errors[] = "Feeding schedule contains invalid characters and must start with a capital letter!";
-    else if(strlen($value)<6)
-        $errors[]="Feeding schedule must have at least 6 letters!";
-    else if(strlen($value)>150)
-        $errors[]="Feeding schedule must be less than 150 letters!";
+    if(!isset($_POST['time']) || !isset($_POST['food']))
+    { echo json_encode(["success" => false, "message" => "All fields are required for the feeding schedule."]); exit;}
+
+    $time=trim($_POST['time']);
+    $food=trim($_POST['food']);
+
+    if($time==='')
+        $errors[]="Time field can't be empty!";
+    else if(!preg_match("/^(0[0-9]|1[0-2]):([0-5][0-9]) (AM|PM)$/", $time))
+        $errors[]="Time field must be in format: HH:MM AM/PM!";
+    else if(strlen($time)<6)
+        $errors[]="Time must have at least 6 letters!";
+    else if(strlen($time)>50)
+        $errors[]="Time must be less than 50 letters!";
+    else if($food==='')
+        $errors[]="Food field can't be empty!";
+    else if(!preg_match("/^[A-Z][\p{L}\p{N} \t\n\r.,;:'\"!?()\-]*$/", $food))
+        $errors[]="Food contains invalid characters and must start with a capital letter!";
+    else if(strlen($food)<6)
+        $errors[]="Food must have at least 6 letters!";
+    else if(strlen($food)>50)
+        $errors[]="Food must be less than 50 letters!";
 
     if(!empty($errors))
     { echo json_encode(["success" => false, "message" => $errors]); exit; }
 
-    $query=$db->prepare("UPDATE animals SET feeding_schedule=:value WHERE id=:id AND owner_id=:user_id");
-    $query->bindValue(":value",$value,SQLITE3_TEXT);
+    $query=$db->prepare("INSERT INTO feeding_calendar(animal_id, time, food) VALUES(:id, :time, :food)");
     $query->bindValue(":id",$id,SQLITE3_INTEGER);
-    $query->bindValue(":user_id",$userID,SQLITE3_INTEGER);
+    $query->bindValue(":time",$time,SQLITE3_TEXT);
+    $query->bindValue(":food",$food,SQLITE3_TEXT);
     $result=$query->execute();
 
     if(!$result)
-    { echo json_encode(["success" => false, "message" => "Failed to update feeding schedule."]); exit;}
+    { echo json_encode(["success" => false, "message" => "Failed to insert a new schedule in calendar."]); exit;}
     else
     { echo json_encode(["success" => true, "message" => "Feeding schedule updated successfully."]); exit;}
+}
+
+else if($field==="removeFeeding")
+{
+    $query=$db->prepare("DELETE FROM feeding_calendar WHERE animal_id=:id");
+    $query->bindValue(":id",$id,SQLITE3_INTEGER);
+    $result=$query->execute();
+
+    if(!$result)
+    { echo json_encode(["success" => false, "message" => "Failed to delete feeding schedule."]); exit;}
+    else
+    { echo json_encode(["success" => true, "message" => "Feeding schedule deleted successfully."]); exit;}
 }
 
 else if($field==="restrictions")
@@ -507,6 +533,20 @@ else if($field==="delete")
 
     if(!$result)
     { echo json_encode(["success" => false, "message" => "Failed to delete medical history."]); exit;}
+
+    $query=$db->prepare("DELETE FROM requests WHERE animal_id=:id");
+    $query->bindValue(":id",$id,SQLITE3_INTEGER);
+    $result=$query->execute();
+
+    if(!$result)
+    { echo json_encode(["success" => false, "message" => "Failed to delete requests for that pet."]); exit;}
+
+    $query=$db->prepare("DELETE FROM feeding_calendar WHERE animal_id=:id");
+    $query->bindValue(":id",$id,SQLITE3_INTEGER);
+    $result=$query->execute();
+
+    if(!$result)
+    { echo json_encode(["success" => false, "message" => "Failed to delete feeding schedule."]); exit;}
 
     $query=$db->prepare("DELETE FROM animals WHERE id=:id and owner_id=:user_id");
     $query->bindValue(":id",$id,SQLITE3_INTEGER);

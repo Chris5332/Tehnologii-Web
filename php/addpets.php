@@ -30,7 +30,7 @@ $birth=$_POST['birth'];
 $species=trim($_POST['species']);
 $breed=trim($_POST['breed']);
 $health=$_POST['health'];
-$region=$_POST['region'];
+$region=ucfirst($_POST['region']);
 $pickup=trim($_POST['pickup']);
 if(!isset($_POST['is_group']))
     $is_group=0; else $is_group=1;

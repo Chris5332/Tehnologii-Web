@@ -109,6 +109,24 @@ fetch(`php/animal_public.php?id=${getParams()}`).then(response => response.json(
             nameTitle.textContent="Group of Pets: "+pet.name;
         containerForTexts.appendChild(nameTitle);
         
+        const userData=result.data_user;
+
+        const userRow=document.createElement("div");
+        userRow.className="userRow";
+
+        const nameUser=document.createElement("p");
+        nameUser.textContent="(id:"+userData.id+") ";
+        if(userData.family===1)
+            nameUser.textContent+="Family: "+userData.name;
+        else
+            nameUser.textContent+="User: "+userData.name+" "+userData.surname;
+        nameUser.id="nameUser-field";
+
+        userRow.append(nameUser);
+        containerForTexts.appendChild(userRow);
+
+
+
         const nameRow=document.createElement("div");
         nameRow.className="nameRow";
 
@@ -200,11 +218,39 @@ fetch(`php/animal_public.php?id=${getParams()}`).then(response => response.json(
         const feedingRow=document.createElement("div");
         feedingRow.className="feedingRow";
 
-        const feeding_schedule=document.createElement("p");
-        feeding_schedule.textContent="Feeding Schedule: "+(pet.feeding_schedule||"No information avaible.");
-        feeding_schedule.id="feeding-field";
+        feedingTitle=document.createElement("p");
+        feedingTitle.textContent="Feeding Calendar: ";
+        feedingRow.append(feedingTitle);
 
-        feedingRow.append(feeding_schedule);
+        const feedingList=result.data_calendar;
+        if(feedingList.length===0)
+        {
+            const noCalendar=document.createElement("p");
+            noCalendar.textContent="No schedule avaible.";
+            noCalendar.className="noCalendar-text";
+            feedingRow.appendChild(noCalendar);
+        }
+        else
+        {
+            const noCalendarText=feedingRow.querySelector(".noCalendar-text");
+            if(noCalendarText)
+                noCalendarText.remove();
+
+            feedingList.forEach(value=>{
+                const feedingSetContainer=document.createElement("div");
+                feedingSetContainer.className="feedingSet-class";
+
+                const feed_time=document.createElement("p");
+                feed_time.textContent="Time: "+value.time;
+
+                const feed_food=document.createElement("p");
+                feed_food.textContent="Food: "+value.food;
+
+                feedingSetContainer.append(feed_time,feed_food);
+                feedingRow.appendChild(feedingSetContainer);
+            });
+        }
+
         containerForTexts.appendChild(feedingRow);
 
         
