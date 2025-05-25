@@ -49,5 +49,25 @@ $medicalList=[];
 while($row=$result->fetchArray(SQLITE3_ASSOC))
     $medicalList[]=$row;
 
-echo json_encode(["success" => true, "message" => "All info obtained.", "data" => $pet, "data_media" => $mediaList, "data_medical" => $medicalList]);
+$query=$db->prepare("SELECT * FROM users where id=:owner_id");
+$query->bindValue(":owner_id", $pet['owner_id'], SQLITE3_INTEGER);
+$result=$query->execute();
+
+if(!$result)
+{ echo json_encode(["success" => false, "message" => "Failed to get user info from DataBase."]); exit;}
+
+$userList=$result->fetchArray(SQLITE3_ASSOC);
+
+$query=$db->prepare("SELECT time, food FROM feeding_calendar WHERE animal_id=:id");
+$query->bindValue(":id", $id, SQLITE3_INTEGER);
+$result=$query->execute();
+
+if(!$result)
+{ echo json_encode(["success" => false, "message" => "Failed to get pet feeding calendar from DataBase."]); exit;}
+
+$calendarList=[];
+while($row=$result->fetchArray(SQLITE3_ASSOC))
+    $calendarList[]=$row;
+
+echo json_encode(["success" => true, "message" => "All info obtained.", "data" => $pet, "data_media" => $mediaList, "data_medical" => $medicalList, "data_user" => $userList, "data_calendar" => $calendarList]);
 ?>

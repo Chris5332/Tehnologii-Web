@@ -75,9 +75,9 @@ fetch("php/user_status.php").then(response => response.json())
 
 fetch("php/mypets.php").then(response => response.json())
 .then(result => {
+    const display=document.getElementById("mypets");
     if(result.success)
     {
-        const display=document.getElementById("mypets");
         display.innerHTML="";
 
         if(result.data.length===0)

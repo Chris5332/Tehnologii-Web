@@ -107,6 +107,7 @@ html, body{
     justify-content: center;
     align-items: center;
     background-color: rgb(54, 207, 135);
+    background: linear-gradient(to right, rgb(54, 207, 135), teal);
     color: white;
     text-align: center;
 }

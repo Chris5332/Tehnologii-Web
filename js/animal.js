@@ -627,27 +627,69 @@ fetch(`php/animal.php?id=${getParams()}`).then(response => response.json())
         const feedingRow=document.createElement("div");
         feedingRow.className="feedingRow";
 
-        const feeding_schedule=document.createElement("p");
-        feeding_schedule.textContent="Feeding Schedule: "+(pet.feeding_schedule||"No information avaible.");
-        feeding_schedule.id="feeding-field";
+        feedingTitle=document.createElement("p");
+        feedingTitle.textContent="Feeding Calendar: ";
+        feedingRow.append(feedingTitle);
 
-        const editFeedingBtn=document.createElement("button");
-        editFeedingBtn.textContent="Edit";
+        const addFeedingBtn=document.createElement("button");
+        addFeedingBtn.textContent="Add";
 
-        const feedingInput=document.createElement("input");
-        feedingInput.type="text";
-        feedingInput.style.display="none";
-        feedingInput.placeholder="Enter a new feeding schedule";
+        const removeFeedingBtn=document.createElement("button");
+        removeFeedingBtn.textContent="Remove all";
+
+        const timeFeedingInput=document.createElement("input");
+        timeFeedingInput.type="text";
+        timeFeedingInput.style.display="none";
+        timeFeedingInput.placeholder="Enter time";
+
+        const foodFeedingInput=document.createElement("input");
+        foodFeedingInput.type="text";
+        foodFeedingInput.style.display="none";
+        foodFeedingInput.placeholder="Enter feeding description";
 
         const saveFeedingBtn=document.createElement("button");
         saveFeedingBtn.textContent="Save";
         saveFeedingBtn.style.display="none";
 
-        editFeedingBtn.onclick=() => {
-            if(feedingInput.style.display==="none")
-                feedingInput.style.display="inline-block";
-            else if(feedingInput.style.display==="inline-block")
-                feedingInput.style.display="none";
+        const feedingList=result.data_calendar;
+        if(feedingList.length===0)
+        {
+            const noFeeding=document.createElement("p");
+            noFeeding.textContent="No schedule avaible.";
+            noFeeding.className="noFeeding-text";
+            feedingRow.appendChild(noFeeding);
+        }
+        else
+        {
+            const noHistoryText=feedingRow.querySelector(".noFeeding-text");
+            if(noHistoryText)
+                noHistoryText.remove();
+
+            feedingList.forEach(value=>{
+                const feedingSetContainer=document.createElement("div");
+                feedingSetContainer.className="feedingSet-class";
+
+                const feed_time=document.createElement("p");
+                feed_time.textContent="Time: "+value.time;
+
+                const feed_food=document.createElement("p");
+                feed_food.textContent="Food: "+value.food;
+
+                feedingSetContainer.append(feed_time,feed_food);
+                feedingRow.appendChild(feedingSetContainer);
+            });
+        }
+
+        addFeedingBtn.onclick=() => {
+            if(timeFeedingInput.style.display==="none")
+                timeFeedingInput.style.display="inline-block";
+            else if(timeFeedingInput.style.display==="inline-block")
+                timeFeedingInput.style.display="none";
+
+            if(foodFeedingInput.style.display==="none")
+                foodFeedingInput.style.display="inline-block";
+            else if(foodFeedingInput.style.display==="inline-block")
+                foodFeedingInput.style.display="none";
 
             if(saveFeedingBtn.style.display==="none")
                 saveFeedingBtn.style.display="inline-block";
@@ -657,8 +699,34 @@ fetch(`php/animal.php?id=${getParams()}`).then(response => response.json())
 
         saveFeedingBtn.onclick=() => {
             const formData=new FormData();
-            formData.append("field", "feeding_schedule");
-            formData.append("value", feedingInput.value);
+            formData.append("field", "saveFeeding");
+            formData.append("value", "");
+            formData.append("id",pet.id);
+            formData.append("time", timeFeedingInput.value);
+            formData.append("food", foodFeedingInput.value);
+
+            fetch("php/update_animal.php", {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+            .then(result => {
+                if(result.success)
+                {
+                    alert(result.message);
+                    location.reload();
+                }
+                else
+                {
+                    alert(result.message);
+                }
+            })
+            .catch(error => console.log('Error: ', error));
+        };
+
+        removeFeedingBtn.onclick=() => {
+            const formData=new FormData();
+            formData.append("field", "removeFeeding");
+            formData.append("value", "");
             formData.append("id",pet.id);
 
             fetch("php/update_animal.php", {
@@ -677,9 +745,9 @@ fetch(`php/animal.php?id=${getParams()}`).then(response => response.json())
                 }
             })
             .catch(error => console.log('Error: ', error));
-         };
+        };
 
-        feedingRow.append(feeding_schedule,editFeedingBtn,feedingInput,saveFeedingBtn);
+        feedingRow.append(addFeedingBtn,removeFeedingBtn,timeFeedingInput,foodFeedingInput,saveFeedingBtn);
         containerForTexts.appendChild(feedingRow);
 
         

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/petIcon.ico">
+    <title>PoW - Scholarly HTML</title>
+    <link rel="stylesheet" href="scholarly.css">
+ </head>
+ <body>
+
+    <h1>Scholarly HTML</h1>
+    <div class="main-content">
+        <ol>
+            <li><a href="#abstract"><span>1. </span>Abstract</a></li>
+            <li><a href="#introduction"><span>2. </span>Introduction</a></li>
+            <li><a href="#interface-design"><span>3. </span>Interface Design and Justification</a></li>
+                    <ol>
+                        <li><a href="#design-choices"><span>3.1. </span>Design Choices</a></li>
+                        <li><a href="#responsiveness"><span>3.2 </span>Responsiveness and Usability</a></li>
+                    </ol>
+            <li><a href="#system-architecture"><span>4. </span>System Architecture</a></li>
+                    <ol>
+                        <li><a href="#overview"><span>4.1. </span>Overview</a></li>
+                        <li><a href="#diagrams"><span>4.2 </span>C4 Level 1 & 2 Diagrams</a></li>
+                        <li><a href="#technologies"><span>4.3 </span>Technologies Involved</a></li>
+                        <li><a href="#milestones"><span>4.4 </span>Milestones</a></li>
+                    </ol>
+            <li><a href="#data-structure"><span>5. </span>Data Structure and Sources</a></li>
+                    <ol>
+                        <li><a href="#database-schema"><span>5.1. </span>Database Schema</a></li>
+                        <li><a href="#media"><span>5.2 </span>Media and Data Origins</a></li>
+                    </ol>
+            <li><a href="#features"><span>6. </span>Application Features</a></li>
+                    <ol>
+                        <li><a href="#register-login"><span>6.1. </span>Register/Login</a></li>
+                        <li><a href="#add-manage"><span>6.2 </span>Add & Manage Pets</a></li>
+                        <li><a href="#browse-request"><span>6.3 </span>Browse & Request</a></li>
+                        <li><a href="#admin"><span>6.4 </span>Admin Panel</a></li>
+                    </ol>
+            <li><a href="#demonstration"><span>7. </span>Demonstration</a></li>
+            <li><a href="#license"><span>8. </span>License</a></li>
+        </ol>
+    </div>
+    
+    <div class="text-content">
+    <section id="abstract">
+        <h2>1. Abstract</h2>
+        <p>PoW - Pet Adoption on Web is a SPA-type web application, created to facilitate pet adoption process. The platform allows users to register, add pets and manage their resources, manage their adoption requests, all of this being available through a responsive interface.
+            The application is built without any framework, using only HTML5, CSS3, JavaScript, PHP and SQLite for the database. The web application also allows media management, data export in CSV/JSON and RSS feeds, and also offers protection against XSS and SQL injection. This document describes the application interface design, architecture, data modeling and main features.</p>
+    </section>
+
+    <section id="introduction">
+        <h2>2. Introduction</h2>
+        <p>This application was developed as part of a college project, with the aim of facilitating animal adoption through an easy-to-use platform. We used basic technologies (HTML, CSS, JavaScript, PHP, SQLite) and complied with all requirements. The application runs locally and does not use external services.</p>
+    </section>
+
+    <section id="interface-design">
+        <h2>3. Interface Design and Justification</h2>
+        
+        <section id="design-choices">
+            <h3>3.1 Design Choices</h3>
+            <p>We chose a simple, clear and easy-to-read design to avoid visual overload and provide users with a friendly experience. The color palette used includes a main shade of green, symbolically associated with nature and animals, in contrast with a teal shade for highlighting. This contrast was chosen to visually differentiate the interface elements.</p>
+            <p>We opted for large visual components (e.g. buttons, cards, forms) and generous spaces between sections, to facilitate use on mobile devices. Each page of the application (e.g. add pets, requests, admin panel) is accessible from a menu positioned at the top of the interface, but which is not persistent when scrolling. However, that footer remains persistent when scrolling, to also provide the name of the logged-in user.</p>
+        </section>
+
+        <section id="responsiveness">
+            <h3>3.2 Responsiveness and Usability</h3>
+            <p>We made sure that the application interface is responsive, automatically adapting to various screen sizes, including mobile phones. This was achieved by using CSS techniques such as media queries.</p>
+            <p>Navigation between pages is done without reloading the entire site (SPA), thus contributing to a fluid experience. Animations were avoided, preferring simple loading of content.</p>
+        </section>
+    </section>
+
+    <section id="system-architecture">
+        <h2>4. System Architecture</h2>
+
+        <section id="overview">
+            <h3>4.1 Overview</h3>
+            <p>We structured the application as a SPA (Single Page Application) web system, where: the frontend is written in HTML, CSS and JavaScript, and the backend is made in PHP with storage in SQLite. The frontend dynamically loads the content into the page using fetch(), without reloading the entire site. The backend responds to requests received from the frontend, performs operations on the database and sends the results in JSON format. PHP sessions were also used for authentication and access control.</p>
+        </section>
+
+        <section id="diagrams">
+            <h3>4.2 C4 Level 1 & 2 Diagrams</h3>
+            <p>C4 diagrams were used to present the overall architecture of the application. The level 1 diagram provides an overview of the relationships between users and the system, while the level 2 diagram details the internal components of the application.</p>
+            <a href="c4diagram.png" target="_blank">C4 diagram</a>
+        </section>
+
+        <section id="technologies">
+            <h3>4.3 Technologies Involved</h3>
+            <p>For data export we used CSV format, and JSON was used exclusively for communication between JavaScript and the backend. In addition, the application also allows importing animals via CSV files, directly from the Add Pets page. The adoption feed is generated via RSS, with a limit of 10 animals displayed at most. The application uses the fetch() method to make asynchronous calls to the backend.</p>
+        </section>
+
+        <section id="milestones">
+            <h3>4.4 Milestones</h3>
+            <p>The project was developed in pieces, starting with certain important stages:</p>
+            <p>Project initialization - configuring the XAMPP environment, defining the directory structure and the SQLite database (e.g. several tables were added along the way, and some modified, initially we started with the table that has user management).</p>
+            <p>Authentication and sessions - implementing login/register functionalities and maintaining user sessions.</p>
+            <p>Animal management - developing pages for adding, editing and deleting animals, including media, then navigating adoptions.</p>
+            <p>Adoption requests and notifications - creating a mechanism for requesting and sending notifications.</p>
+            <p>Additional functionalities - CSV/JSON export, CSV import, RSS feed, HTML/CSS validation and XSS/SQL injection protection by checking all user inputs.</p>
+            <p>Architectural diagram & documentation - creating documentation related to the project.</p>
+        </section>
+    </section>
+
+    <section id="data-structure">
+        <h2>5. Data Structure and Sources</h2>
+
+        <section id="database-schema">
+            <h3>5.1 Database Schema</h3>
+            <p>The database consists of 7 tables and covers the functionality of the application. The tables include users, animals, media, requests, notifications, feeding_calendar and medical_history. Also, some tables are linked by relevant foreign keys (e.g. an animal is associated with a user by owner_id).</p>
+            <p>All data in the tables is provided by users through the application, where insertion is done through forms. Media resources (images, audio, video) can come from various free license sites such as Pexels or Pixabay or from a personal archive.</p>
+        </section>
+
+        <section id="media">
+            <h3>5.2 Media and Data Origins</h3>
+            <p>Media resources (images, videos, audio files) can be optionally uploaded by users while filling out the animal add form. These resources are saved locally in a folder called uploads and are associated in the database via a unique identifier (e.g. the path to the uploads file).</p>
+        </section>
+    </section>
+
+
+    <section id="features">
+        <h2>6. Application Features</h2>
+
+        <section id="register-login">
+            <h3>6.1 Register/Login</h3>
+            <p>We allow new users to register by filling out a form with a username, email address, and password. The frontend performs validation before submission. After successful registration, the user is redirected to the login page. If authentication is successful, they are directed to the dashboard (e.g. home page), and their session remains active until they log out. If there are problems, such as duplicate emails, an error message is displayed.</p>
+        </section>
+
+        <section id="add-manage">
+            <h3>6.2 Add & Manage Pets</h3>
+            <p>Once authenticated, users can submit pets for adoption using a dedicated form, where they fill in details such as name, breed, pick-up address and optionally upload images, videos or audio files. We also support importing via CSV files.</p>
+            <p>Pets added by the user appear in the “My Pets” section. From there, they can edit descriptions, manage feeding schedules and medical history, update media files and permanently delete pets.</p>
+        </section>
+
+        <section id="browse-request">
+            <h3>6.3 Browse & Request</h3>
+            <p>In the Browse Pets section, we display all pets available for adoption except those owned by the logged-in user. Each pet is shown as a card with its basic details. Clicking the card opens a full details page. From there, a user can submit an adoption request and the pet owner sees all requests and can choose to approve or reject them.</p>
+        </section>
+
+        <section id="admin">
+            <h3>6.4 Admin Panel</h3>
+            <p>The administrator has access to an additional page called panel where he can run the database initialization script, delete a pet from the database based on its ID, and export all registered animals to a csv file.</p>
+        </section>
+    </section>
+
+
+    <section id="demonstration">
+        <h2>7. Demonstration</h2>
+        <p>Below you can find a short video demonstration of all the features available in the web application:</p>
+        <a href="demovideo.mp4" target="_blank">Demo Video</a>
+    </section>
+
+
+    <section id="license">
+        <h2>8. License</h2>
+        <p>The project was made under the MIT license, more details can be found below:</p>
+        <a href="LICENSE" target="_blank">LICENSE</a>
+    </section>
+
+    </div>
+ </body>
+
+</html>

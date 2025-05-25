@@ -42,6 +42,10 @@ document.getElementById("requests-btn").addEventListener("click", () => {
     pageNavigation("requests");
 });
 
+document.getElementById("about-btn").addEventListener("click", () => {
+    pageNavigation("about");
+});
+
 document.getElementById("panel-btn").addEventListener("click", () => {
     pageNavigation("panel");
 });

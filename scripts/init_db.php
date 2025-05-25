@@ -31,14 +31,13 @@ $db->exec('CREATE TABLE IF NOT EXISTS "animals"(
     "breed" TEXT NOT NULL,
     "health_status" TEXT NOT NULL,
     "pickup_address" TEXT NOT NULL,
-    "feeding_schedule" TEXT,
     "restrictions" TEXT,
     "relationship" TEXT,
     "description" TEXT,
     "is_group" INTEGER DEFAULT 0,
     "owner_id" INTEGER NOT NULL,
     "created_at" TIME DEFAULT CURRENT_TIMESTAMP,
-    "region" TEXT,
+    "region" TEXT NOT NULL,
     FOREIGN KEY(owner_id) REFERENCES users(id)
 )');
 
@@ -56,6 +55,34 @@ $db->exec('CREATE TABLE IF NOT EXISTS "medical_history"(
     "description" TEXT NOT NULL,
     "treatment" TEXT NOT NULL,
     "date" DATE NOT NULL,
+    FOREIGN KEY(animal_id) REFERENCES animals(id)
+)');
+
+$db->exec('CREATE TABLE IF NOT EXISTS "requests"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "animal_id" INTEGER NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "created_at" TIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(animal_id) REFERENCES animals(id),
+    FOREIGN KEY(user_id) REFERENCES users(id)
+)');
+
+$db->exec('CREATE TABLE IF NOT EXISTS "notifications"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "message" TEXT NOT NULL,
+    "created_at" TIME DEFAULT CURRENT_TIMESTAMP,
+    "animal_id" INTEGER NOT NULL,
+    "animal_name" TEXT NOT NULL,
+    "is_group" INTEGER DEFAULT 0,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+)');
+
+$db->exec('CREATE TABLE IF NOT EXISTS "feeding_calendar"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    "animal_id" INTEGER NOT NULL,
+    "time" TEXT NOT NULL,
+    "food" TEXT NOT NULL,
     FOREIGN KEY(animal_id) REFERENCES animals(id)
 )');
 

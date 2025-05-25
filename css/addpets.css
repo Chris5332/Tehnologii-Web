@@ -108,6 +108,20 @@
     font-size: larger;
 }
 
+#valid-format{
+    font-size: medium;
+    color: rgba(32, 33, 33, 0.353);
+    margin-top: 5vh;
+}
+
+#import-form ol{
+    list-style-position: inside;
+    text-align: start;
+    font-size: medium;
+    color: rgba(32, 33, 33, 0.353);
+    margin-right: 5vh;
+}
+
 .photo-list, .video-list, .audio-list{
     list-style-position: inside;
     width: 47vw;

@@ -1,4 +1,4 @@
-const validPages = ["login","register","dashboard","addpets","mypets","browse","requests","panel","animal","animal_public","notfound"];
+const validPages = ["login","register","dashboard","addpets","mypets","browse","requests","about","panel","animal","animal_public","notfound"];
 
 window.onload = () => {
   if (!location.hash) {
@@ -73,6 +73,12 @@ function loadPage(pageName){
       const requests=document.getElementById("requests-btn");
       if(requests)
         requests.classList.add("active-btn");
+    }
+    else if(baseHash==="about")
+    {
+      const about=document.getElementById("about-btn");
+      if(about)
+        about.classList.add("active-btn");
     }
     else if(baseHash==="panel")
     {

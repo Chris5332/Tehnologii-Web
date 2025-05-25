@@ -35,7 +35,7 @@
     margin-left: 3vh;
 }
 
-.nameRow,.birthRow,.speciesRow,.breedRow,.healthRow,.regionRow,.pickupRow,.descriptionRow,.feedingRow,
+.userRow,.nameRow,.birthRow,.speciesRow,.breedRow,.healthRow,.regionRow,.pickupRow,.descriptionRow,.feedingRow,
 .restrictionsRow,.relationshipRow,.medicalRow{
     display: flex;
     flex-direction: column;

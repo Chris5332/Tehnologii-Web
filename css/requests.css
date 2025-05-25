@@ -1,3 +1,113 @@
 .requests-content{
     margin-bottom: 12vh;
 }
+
+.requests-content h1{
+    color: rgb(32, 33, 33);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noPets-class{
+    color: rgb(32, 33, 33);
+    display: flex;
+    flex-direction: column;
+    margin-top: 8vh;
+    margin-left: 5vw;
+    font-size: 30px;
+}
+
+.req-card{
+    background-color: rgba(226, 227, 221, 0.67);
+    margin-bottom: 2vh;
+    display: flex;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    border-radius: 5px;
+}
+
+.button-accept,.button-remove-notification{
+    width: 8vw;
+    margin-left: auto;
+    margin-right: 1vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: none;
+    background-color: rgb(54, 207, 135);
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: large;
+    transition: 0.2s;
+}
+
+.button-remove-notification{
+    width: 16vw;
+}
+
+.button-accept:hover,.button-remove-notification:hover{
+    background-color: teal;
+}
+
+.button-decline{
+    width: 8vw;
+    margin-right: 1vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    border: none;
+    background-color: rgb(255, 67, 67);
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: large;
+    transition: 0.2s;
+}
+
+.button-decline:hover{
+    background-color: darkred;
+}
+
+.container-texts {
+    color: rgb(32, 33, 33);
+    font-size: large;
+    margin-left: 2vh;
+}
+
+#filter-select{
+    cursor: pointer;
+    height: 5vh;
+    width: 25vw;
+    border-radius: 50px;
+    border: 0px;
+    background-color: rgb(226, 227, 221, 0.67);
+    font-size: large;
+    color: rgb(32, 33, 33);
+    margin-left: 5vw;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
+@media only screen and (max-width: 850px)
+{
+    .req-card{
+        flex-direction: column;
+    }
+
+    .button-accept,.button-decline,.button-remove-notification{
+        margin-left: 1vw;
+        width: auto;
+        height: 5vh;
+    }
+
+    #filter-select{
+        width: 90%;
+    }
+}

@@ -74,12 +74,26 @@ fetch("php/user_status.php").then(response => response.json())
 
 showFilterOption("all");
 
+fetch('php/getspecies.php').then(response=>response.json()).then(result=>{
+    if(result.success)
+    {
+        const selector=document.getElementById("filter-select");
+
+        result.data.forEach(species => {
+            const option=document.createElement("option");
+            option.value=species;
+            option.textContent=species;
+            selector.appendChild(option);
+        });
+    }
+}).catch(error=> console.log('Error: ', error));
+
 function showFilterOption(option){
     fetch(`php/browse.php?filter=${option}`).then(response => response.json())
     .then(result => {
+        const display=document.getElementById("mypets");
         if(result.success)
         {
-            const display=document.getElementById("mypets");
             display.innerHTML="";
 
             if(result.data.length===0)

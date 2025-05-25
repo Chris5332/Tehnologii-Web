@@ -61,6 +61,20 @@ $result=$query->execute();
 if(!$result)
 { echo json_encode(["success" => false, "message" => "Failed to delete medical history."]); exit;}
 
+$query=$db->prepare("DELETE FROM requests WHERE animal_id=:id");
+$query->bindValue(":id",$id,SQLITE3_INTEGER);
+$result=$query->execute();
+
+if(!$result)
+{ echo json_encode(["success" => false, "message" => "Failed to delete requests."]); exit;}
+
+$query=$db->prepare("DELETE FROM feeding_calendar WHERE animal_id=:id");
+$query->bindValue(":id",$id,SQLITE3_INTEGER);
+$result=$query->execute();
+
+if(!$result)
+{ echo json_encode(["success" => false, "message" => "Failed to delete feeding schedule."]); exit;}
+
 $query=$db->prepare("DELETE FROM animals WHERE id=:id");
 $query->bindValue(":id",$id,SQLITE3_INTEGER);
 $result=$query->execute();

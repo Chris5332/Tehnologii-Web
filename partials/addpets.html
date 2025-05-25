@@ -57,6 +57,25 @@
 
             <button type="submit" id="addpets">Add Pet</button>
         </form>
+        <hr>
+        <form id="import-form" method="post" action="php/import_animals_csv.php" enctype="multipart/form-data">
+            <p>Import animals from a CSV file</p>
+            <p id="valid-format">(Valid format is: Name,Birth Date,Species,Breed,Health Status,Region,Pickup Address,Group)</p>
+            <input type="file" name="csv_file" id="csv-input" accept=".csv" required>
+            <button type="submit" id="csvaddpets">Add Pets</button>
+            <p id="valid-format">Restrictions:</p>
+            <ol>
+                <li>Don't use a header for CSV file.</li>
+                <li>Name: must start with a capital letter, contain only letters and spaces, and be 2..15 characters long.</li>
+                <li>Birth Date: must be a date from past(format: YYYY-MM-DD).</li>
+                <li>Species: must start with a capital letter, contain only letters and spaces, and be 2..15 characters long.</li>
+                <li>Breed: must start with a capital letter, contain only letters and spaces, and be 2..15 characters long.</li>
+                <li>Health Status: must be one from [healthy, injured, sick].</li>
+                <li>Region: must be one from [Botosani, Bacau, Galati, Iasi, Neamt, Suceava].</li>
+                <li>Pickup Address: must start with a capital letter, contain only letters and spaces, and be 4..40 characters long.</li>
+                <li>Group: must be one from [0, 1].</li>
+            </ol>
+        </form>
     </div>
 </main>
 
