@@ -66,7 +66,11 @@ fetch("php/user_status.php").then(response => response.json())
         }
 
         if(!result.is_admin)
-            document.getElementById("panel-btn").style.display="none";
+        {
+            const panelBtn=document.getElementById("panel-btn");
+            if(panelBtn)
+                panelBtn.style.display = "none";
+        }
     }
     else
         pageNavigation("login");// redirect if not logged in
@@ -347,8 +351,9 @@ fetch(`php/animal_public.php?id=${getParams()}`).then(response => response.json(
             
             images.forEach((photo,value)=>{
                 const img=document.createElement("img");
-                img.id="imgItem";
+                img.id="imgItem"+value;
                 img.src=photo.path;
+                img.alt="img"+value;
             
                 if(value===0)
                     img.style.display="block";
@@ -398,14 +403,15 @@ fetch(`php/animal_public.php?id=${getParams()}`).then(response => response.json(
             const noVideosText=videosContainer.querySelector(".noVideos-text");
             if(noVideosText)
                 noVideosText.remove();
-        
+            
+            let contor=0;
             videoList.forEach(vid => {
                 const videoPlayer=document.createElement("video");
-                videoPlayer.id="videoItem";
+                videoPlayer.id="videoItem"+contor;
                 videoPlayer.src=vid.path;
                 videoPlayer.controls=true;
                 videoPlayer.className="videosContainer-class";
-
+                contor++;
                 videosContainer.appendChild(videoPlayer);
             });
         }
@@ -432,13 +438,14 @@ fetch(`php/animal_public.php?id=${getParams()}`).then(response => response.json(
             if(noAudiosText)
                 noAudiosText.remove();
 
+            let contor=0;
             audioList.forEach(aud => {
                 const audioPlayer=document.createElement("audio");
-                audioPlayer.id="audioItem"
+                audioPlayer.id="audioItem"+contor;
                 audioPlayer.src=aud.path;
                 audioPlayer.controls=true;
                 audioPlayer.className="audiosContainer-class";
-
+                contor++;
                 audiosContainer.appendChild(audioPlayer);
             });
         }

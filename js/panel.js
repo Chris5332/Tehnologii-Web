@@ -107,3 +107,7 @@ document.getElementById("deletePet-form").addEventListener("submit", function (e
 document.getElementById("export-csv-btn").addEventListener("click", () => {
     window.open("php/export_animals_csv.php","_blank");
 });
+
+document.getElementById("export-json-btn").addEventListener("click", () => {
+    window.open("php/export_animals_json.php","_blank");
+});

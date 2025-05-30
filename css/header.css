@@ -19,11 +19,13 @@ body, html{
     padding: 2vh 2.5vh;
     font-size: medium;
     background-color: rgb(51, 51, 51);
+    transition: 0.2s;
 }
 
 .topnav button:hover{
     background-color: rgb(115, 115, 115);
     color: rgb(51, 51, 51);
+    font-size: large;
 }
 
 .topnav .icon{
@@ -32,7 +34,9 @@ body, html{
 
 .topnav button.active-btn{
     background-color: rgb(54, 207, 135);
+    background: linear-gradient(to right, rgb(54, 207, 135), teal);
     color: white;
+    font-size: large;
 }
 
 @media only screen and (max-width: 1067px)

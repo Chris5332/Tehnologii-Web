@@ -1,7 +1,6 @@
 <?php
 
 header("Content-Type: application/rss+xml; charset=UTF-8");
-echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
 
 $db = new SQLite3('../data/pow_db.sqlite');
 
@@ -61,32 +60,53 @@ else//for species
 }
 
 $result=$query->execute();
+$dom=new DOMDocument("1.0","UTF-8");
+$dom->formatOutput=true;
+
+$rss=$dom->createElement("rss");
+$rss->setAttribute("version","2.0");
+$dom->appendChild($rss);
+
+$channel=$dom->createElement("channel");
+$rss->appendChild($channel);
+
+$titleHeader=$dom->createElement("title","PoW - Pet Adoption on Web (type: " . ucfirst($type) .")");
+$channel->appendChild($titleHeader);
+
+$linkHeader=$dom->createElement("link","http://localhost/pow/");
+$channel->appendChild($linkHeader);
+
+$descriptionHeader=$dom->createElement("description","RSS feed");
+$channel->appendChild($descriptionHeader);
+
+while($row=$result->fetchArray(SQLITE3_ASSOC))
+{
+    $item=$dom->createElement("item");
+
+    $title=$dom->createElement("title","Name: " . $row['name']);
+    $item->appendChild($title);
+
+    $link=$dom->createElement("link","http://localhost/pow/index.html#animal_public?id=".$row['id']);
+    $item->appendChild($link);
+
+    //mini template
+    $descriptionTemplate=sprintf("Species: %s\n\t\t   Breed: %s\n\t\t   Status: %s\n\t\t   Region: %s\n      ",$row['species'],
+    $row['breed'], $row['health_status'], $row['region']);
+
+    $desc=$dom->createElement("description",$descriptionTemplate);
+    $item->appendChild($desc);
+
+    $date=date(DATE_RSS, strtotime($row['created_at']));
+    $pubDate=$dom->createElement("pubDate",$date);
+    $item->appendChild($pubDate);
+
+    $guid=$dom->createElement("guid",$row['id']);
+    $guid->setAttribute("isPermaLink","false");
+    $item->appendChild($guid);
+
+    $channel->appendChild($item);
+}
+
+echo $dom->saveXML();
 
 ?>
-
-<rss version="2.0">
-<channel>
-    <title><?= htmlspecialchars("PoW - Pet Adoption on Web (type: " . ucfirst($type) .")") ?></title>
-    <link>http://localhost/pow/</link>
-    <description>Rss feed</description>
-    <?php
-        while($row=$result->fetchArray(SQLITE3_ASSOC))
-        {
-            $title="Name: " . $row['name'];
-            $description="\n\t\t\tSpecies: " . $row['species'] . "\n\t\t\tBreed: " . $row['breed'] . "\n\t\t\tStatus: "
-            . $row['health_status'] . "\n\t\t\tRegion: " . $row['region']. "\n";
-            $link="http://localhost/pow/index.html#animal_public?id=".$row['id'];
-            $pubDate=$row['created_at'];
-            $guid=$row['id'];
-
-            echo "\t<item>\n";
-                echo "\t\t<title>". htmlspecialchars($title) ."</title>\n";
-                echo "\t\t<link>". htmlspecialchars($link) ."</link>\n";
-                echo "\t\t<description>". htmlspecialchars($description) ."\t\t</description>\n";
-                echo "\t\t<pubDate>". htmlspecialchars($pubDate) ."</pubDate>\n";
-                echo "\t\t<guid>". htmlspecialchars($guid) ."</guid>\n";
-            echo "\t</item>\n";
-        }
-    ?>
-</channel>
-</rss>

@@ -1,79 +1,123 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en" typeof="schema:ScholarlyArticle">
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Iftime Cristian-Laurentiu, Radu-Barb Claudiu-Nicolae" property="schema:author">
+    <meta name="contributor" content="Iftime Cristian-Laurentiu" property="schema:contributor">
+    <meta name="contributor" content="Radu-Barb Claudiu-Nicolae" property="schema:contributor">
+    <meta name="description" content="PoW - Pet Adoption on Web: a SPA web application for pet adoption, built with HTML, CSS, JS, PHP and SQLite." property="schema:description">
+    <meta name="license" content="MIT" property="schema:license">
+    <meta name="application-name" content="PoW - Pet Adoption on Web">
+    <meta name="keywords" content="pet adoption, SPA, JavaScript, PHP, SQLite, responsive web" property="schema:keywords">
+    <meta name="datePublished" content="2025-05-29" property="schema:datePublished">
     <link rel="icon" type="image/x-icon" href="assets/petIcon.ico">
-    <title>PoW - Scholarly HTML</title>
+    <title property="schema:name">PoW - Scholarly HTML</title>
     <link rel="stylesheet" href="scholarly.css">
  </head>
- <body>
+ <body typeof="schema:WebApplication" property="schema:about" content="Pet adoption system">
 
-    <h1>Scholarly HTML</h1>
-    <div class="main-content">
+    <h1 property="schema:name">Scholarly HTML</h1>
+
+    <div class="main-content" property="schema:tableOfContents">
         <ol>
-            <li><a href="#abstract"><span>1. </span>Abstract</a></li>
-            <li><a href="#introduction"><span>2. </span>Introduction</a></li>
-            <li><a href="#interface-design"><span>3. </span>Interface Design and Justification</a></li>
-                    <ol>
-                        <li><a href="#design-choices"><span>3.1. </span>Design Choices</a></li>
-                        <li><a href="#responsiveness"><span>3.2 </span>Responsiveness and Usability</a></li>
-                    </ol>
-            <li><a href="#system-architecture"><span>4. </span>System Architecture</a></li>
-                    <ol>
-                        <li><a href="#overview"><span>4.1. </span>Overview</a></li>
-                        <li><a href="#diagrams"><span>4.2 </span>C4 Level 1 & 2 Diagrams</a></li>
-                        <li><a href="#technologies"><span>4.3 </span>Technologies Involved</a></li>
-                        <li><a href="#milestones"><span>4.4 </span>Milestones</a></li>
-                    </ol>
-            <li><a href="#data-structure"><span>5. </span>Data Structure and Sources</a></li>
-                    <ol>
-                        <li><a href="#database-schema"><span>5.1. </span>Database Schema</a></li>
-                        <li><a href="#media"><span>5.2 </span>Media and Data Origins</a></li>
-                    </ol>
-            <li><a href="#features"><span>6. </span>Application Features</a></li>
-                    <ol>
-                        <li><a href="#register-login"><span>6.1. </span>Register/Login</a></li>
-                        <li><a href="#add-manage"><span>6.2 </span>Add & Manage Pets</a></li>
-                        <li><a href="#browse-request"><span>6.3 </span>Browse & Request</a></li>
-                        <li><a href="#admin"><span>6.4 </span>Admin Panel</a></li>
-                    </ol>
-            <li><a href="#demonstration"><span>7. </span>Demonstration</a></li>
-            <li><a href="#license"><span>8. </span>License</a></li>
+            <li><a href="#abstract">1. Abstract</a></li>
+            <li><a href="#introduction">2. Introduction</a></li>
+            <li><a href="#interface-design">3. Interface Design and Justification</a></li>
+            <li>
+                <ol>
+                    <li><a href="#design-choices">3.1 Design Choices</a></li>
+                    <li><a href="#responsiveness">3.2 Responsiveness and Usability</a></li>
+                </ol>
+            </li>
+            <li><a href="#system-architecture">4. System Architecture</a></li>
+            <li>
+                <ol>
+                    <li><a href="#overview">4.1 Overview</a></li>
+                    <li><a href="#diagrams">4.2 C4 Level 1 & 2 Diagrams & User Flow Diagram</a></li>
+                    <li><a href="#technologies">4.3 Technologies Involved</a></li>
+                    <li><a href="#milestones">4.4 Milestones</a></li>
+                </ol>
+            </li>
+            <li><a href="#data-structure">5. Data Structure and Sources</a></li>
+            <li>
+                <ol>
+                    <li><a href="#database-schema">5.1 Database Schema</a></li>
+                    <li><a href="#database-interaction">5.2 Database interaction</a></li>
+                    <li><a href="#media">5.3 Media and Data Origins</a></li>
+                </ol>
+            </li>
+            <li><a href="#features" property="schema:hasPart" typeof="schema:WebApplicationFeature">6. Application Features</a></li>
+            <li>
+                <ol>
+                    <li><a href="#home">6.1 Home</a></li>
+                    <li><a href="#register">6.2 Register</a></li>
+                    <li><a href="#add-pets">6.3 Add Pets</a></li>
+                    <li><a href="#my-pets">6.4 My Pets</a></li>
+                    <li><a href="#browse-pets">6.5 Browse Pets</a></li>
+                    <li><a href="#adoption-request">6.6 Adoption Request</a></li>
+                    <li><a href="#about">6.7 About</a></li>
+                    <li><a href="#admin-panel">6.8 Admin Panel</a></li>
+                </ol>
+            </li>
+            <li><a href="#demonstration">7. Demonstration</a></li>
+            <li><a href="#license">8. License</a></li>
+            <li><a href="#reference">9. References</a></li>
+            <li><a href="#authors">10. Authors</a></li>
+            <li><a href="#validation">11. Validation</a></li>
+            <li><a href="#acknowledgements">12. Acknowledgements</a></li>
         </ol>
     </div>
     
     <div class="text-content">
-    <section id="abstract">
-        <h2>1. Abstract</h2>
+    <section id="abstract" property="schema:abstract">
+        <h2 property="schema:headline">1. Abstract</h2>
         <p>PoW - Pet Adoption on Web is a SPA-type web application, created to facilitate pet adoption process. The platform allows users to register, add pets and manage their resources, manage their adoption requests, all of this being available through a responsive interface.
             The application is built without any framework, using only HTML5, CSS3, JavaScript, PHP and SQLite for the database. The web application also allows media management, data export in CSV/JSON and RSS feeds, and also offers protection against XSS and SQL injection. This document describes the application interface design, architecture, data modeling and main features.</p>
     </section>
 
-    <section id="introduction">
-        <h2>2. Introduction</h2>
-        <p>This application was developed as part of a college project, with the aim of facilitating animal adoption through an easy-to-use platform. We used basic technologies (HTML, CSS, JavaScript, PHP, SQLite) and complied with all requirements. The application runs locally and does not use external services.</p>
+    <section id="introduction" property="schema:introduction">
+        <h2 property="schema:headline">2. Introduction</h2>
+        <p>This application was developed as part of a college project, with the aim of facilitating pet adoption through an easy-to-use platform. We used basic technologies (HTML, CSS, JavaScript, PHP, SQLite) and complied with all requirements. The application runs locally and does not use external services.</p>
     </section>
 
     <section id="interface-design">
-        <h2>3. Interface Design and Justification</h2>
+        <h2 property="schema:headline">3. Interface Design and Justification</h2>
         
         <section id="design-choices">
             <h3>3.1 Design Choices</h3>
             <p>We chose a simple, clear and easy-to-read design to avoid visual overload and provide users with a friendly experience. The color palette used includes a main shade of green, symbolically associated with nature and animals, in contrast with a teal shade for highlighting. This contrast was chosen to visually differentiate the interface elements.</p>
-            <p>We opted for large visual components (e.g. buttons, cards, forms) and generous spaces between sections, to facilitate use on mobile devices. Each page of the application (e.g. add pets, requests, admin panel) is accessible from a menu positioned at the top of the interface, but which is not persistent when scrolling. However, that footer remains persistent when scrolling, to also provide the name of the logged-in user.</p>
+            <p>We opted for large visual components (e.g. buttons, cards, forms) and generous spaces between sections, to facilitate use on mobile devices. Each page of the application (e.g. add pets, requests, admin panel, etc) is accessible from a menu positioned at the top of the interface, but which is not persistent when scrolling. The footer was designed to remain consistent across pages and includes the application logo, the name of the currently logged-in user, and the application name.</p>
+            <p>In terms of fonts, only the login, registration and scholarly pages use the <b>Verdana, Geneva, Tahoma, sans-serif</b> font family to improve readability and provide a sense of clarity during user authentication. The rest of the application uses the browser's default font, usually Times New Roman, to maintain simplicity and focus on content rather than decoration.</p>
+            <p>As for the interfaces, we followed a consistent visual structure across all pages to ensure usability and predictability for the user. Each page follows the same layout logic (header with navigation, main section, and footer) to provide a uniform experience. Elements such as cards, buttons, and forms were designed to be intuitive, with clearly defined actions and enough spacing for touch-based interaction, especially on mobile devices.</p>
+            <p>We used <b>display: flex</b> with <b>flex-direction: column</b> for the overall layout of the page, to allow for vertically stack of main sections such as the header, main content, and footer. This structure is particularly beneficial for mobile responsiveness and greatly aids in reading content from top to bottom.</p>
+            <p>On the login page, we intentionally reserved space next to the login form for a registration area that can be accessed via a button, in order to improve usability and visual clarity.</p>
         </section>
 
         <section id="responsiveness">
             <h3>3.2 Responsiveness and Usability</h3>
             <p>We made sure that the application interface is responsive, automatically adapting to various screen sizes, including mobile phones. This was achieved by using CSS techniques such as media queries.</p>
             <p>Navigation between pages is done without reloading the entire site (SPA), thus contributing to a fluid experience. Animations were avoided, preferring simple loading of content.</p>
+            <p>On smaller screens, certain layout adjustments were made: menus are displayed vertically, font sizes are slightly increased for readability, and margins are reduced. Also here, we simplified the header by displaying only a menu button and a quick access button to the home page. When menu button is pressed, the other available pages are displayed. Without this approach, users would not have been able to access the basic functions of the application. The desktop version, on the other hand, displays the full horizontal navigation menu at the top of the screen.</p>
+            <p>To support a flexible and scalable layout across devices, we avoided absolute units like <b>px</b> in our CSS files. We opted for relative units like <b>vw</b>, <b>vh</b>, and <b>percentages</b>, which allow elements to resize automatically based on screen size. </p>
+            <p>To illustrate the responsiveness, below are some pictures of the same interface viewed on both desktop and mobile resolutions. For the mobile version, we used the screen dimensions of an iPhone 14 Pro Max(430 x 932 px) as a reference model.</p>
+            <a href="assets/login1.png" target="_blank" property="schema:image">Login Page(desktop)</a><br>
+            <a href="assets/login2.png" target="_blank" property="schema:image">Login Page(mobile)</a><br>
+            <a href="assets/addpets1.png" target="_blank" property="schema:image">AddPets Page(desktop)</a><br>
+            <a href="assets/addpets2.png" target="_blank" property="schema:image">AddPets Page(mobile)</a><br>
+            <a href="assets/headerMobile.png" target="_blank" property="schema:image">Menu on mobile</a><br>
+            <a href="assets/mypets1.png" target="_blank" property="schema:image">MyPets Page(desktop)</a><br>
+            <a href="assets/mypets2.png" target="_blank" property="schema:image">MyPets Page(mobile)</a><br>
+            <a href="assets/panel1.png" target="_blank" property="schema:image">Panel Page(desktop)</a><br>
+            <a href="assets/panel2.png" target="_blank" property="schema:image">Panel Page(mobile)</a><br>
+            <a href="assets/requests1.png" target="_blank" property="schema:image">Requests Page(desktop)</a><br>
+            <a href="assets/requests2.png" target="_blank" property="schema:image">Requests Page(mobile)</a><br>
         </section>
     </section>
 
     <section id="system-architecture">
-        <h2>4. System Architecture</h2>
+        <h2 property="schema:headline">4. System Architecture</h2>
 
         <section id="overview">
             <h3>4.1 Overview</h3>
@@ -81,14 +125,28 @@
         </section>
 
         <section id="diagrams">
-            <h3>4.2 C4 Level 1 & 2 Diagrams</h3>
+            <h3>4.2 C4 Level 1 & 2 Diagrams & User Flow Diagram</h3>
             <p>C4 diagrams were used to present the overall architecture of the application. The level 1 diagram provides an overview of the relationships between users and the system, while the level 2 diagram details the internal components of the application.</p>
-            <a href="c4diagram.png" target="_blank">C4 diagram</a>
+            <a href="c4diagram.png" target="_blank" property="schema:image">C4 diagram</a>
+            <p>In addition, we created a user interaction diagram to illustrate how a user navigates through the frontend interface. This diagram highlights the main user interactions with the web application.</p>
+            <a href="assets/userflowdiagram.png" target="_blank" property="schema:image">User Flow Diagram</a>
         </section>
 
         <section id="technologies">
             <h3>4.3 Technologies Involved</h3>
-            <p>For data export we used CSV format, and JSON was used exclusively for communication between JavaScript and the backend. In addition, the application also allows importing animals via CSV files, directly from the Add Pets page. The adoption feed is generated via RSS, with a limit of 10 animals displayed at most. The application uses the fetch() method to make asynchronous calls to the backend.</p>
+            <p>For data export we used CSV/JSON format, also JSON was used for communication between JavaScript and the backend. In addition, the application also allows importing pets via CSV/JSON files, directly from the Add Pets page. The adoption feed is generated via RSS, with a limit of 10 pets displayed at most.</p>
+            <p>To ensure a smooth SPA experience, we used the <b>fetch()</b> method to implement asynchronous Ajax calls to the backend. These calls allow page content to be loaded without reloading the page. For example, forms send data using <b>POST</b> requests to PHP scripts that validate and send back a JSON. Also, pages like Add Pets, My Pets, and Requests use the <b>fetch()</b> function to retrieve or update pet data, send adoption requests, and receive notifications. The goal of this implementation is to reduce load time and facilitate a more pleasant user experience.</p>
+            <p>The application does not call external public web services, its own backend written in PHP works as a set of services, called asynchronously from JavaScript via fetch() and responding in JSON format.</p>
+            <p>The application contains template-related elements, dynamically loading reusable components, such as headers and footers, across all pages. Pet cards, buttons, and forms use a visual layout that ensures a consistent and scalable presentation style.</p>
+            <p>While the backend written in PHP is responsible for validating and processing the data, there is also minimal client-side validation using JavaScript to improve the user experience. For example, when uploading media files when adding a pet, the frontend checks if the files exceed the allowed size, avoiding unnecessary uploads. Also, some data entry fields use the <b>required</b> attribute in HTML to prevent empty submissions. These validations provide faster feedback to users. However, all critical validations (e.g. existence of an email in the database for registration), such as input data, are handled exclusively on the server side using PHP to ensure complete protection.</p>
+            <p><b>SQL Injection Protection:</b> To protect the web application against SQL injection attacks, all SQL operations in the application are implemented using `<b>prepared statements</b>`. Thus, user data is treated separately from the SQL code, which prevents its direct concatenation in the query and reduces the risk of SQL injection attacks. 
+            Each user input is passed to SQL queries using the bindValue() method. This makes sure the data is safely processed and correctly added to the query using placeholders.</p>
+            <p><b>XSS Protection:</b> To prevent XSS (Cross-Site Scripting), the application enforces strict validation rules for all user-entered data. Characters such as <b>&lt;, &gt;, &quot;, &#39;</b> (which can be used to inject scripts) are not accepted in any input, as all form fields are validated against allowed formats (e.g., only letters, numbers, or certain specific characters).
+            In the JavaScript code, the application uses <b>.textContent</b> instead of <b>.innerHTML</b> to insert user input into the DOM, ensuring that all content is treated as plain text, not executable code. On the server side, the PHP files do not use echo to output raw user input, and instead rely on input formats strictly validated before database insertion. For the RSS feed, all fields are previously validated and restricted, preventing any XSS from propagating into the feed. 
+            In addition, a Content-Security-Policy(CSP) meta tag was added to restrict script sources and prevent the execution of unauthorized code.</p>
+            <p><b>Access Control and Session Protection:</b> The application implements a strict mechanism to protect resources. PHP scripts check if a user is authenticated using PHP sessions before performing any sensitive operations. Attempts to perform operations without being authenticated with the respective role redirect users to other content, ultimately not allowing the operations.
+            Also, operations such as editing or deleting a pet are restricted by owner: only the user who owns the pet (based on their session ID) can access and modify its data. Even if the user tries to manually access the edit URL of another pet, the backend check denies access, thus preventing unauthorized changes.
+            Similarly, access to the admin panel is strictly restricted to authenticated users with the administrative role.</p>
         </section>
 
         <section id="milestones">
@@ -96,15 +154,15 @@
             <p>The project was developed in pieces, starting with certain important stages:</p>
             <p>Project initialization - configuring the XAMPP environment, defining the directory structure and the SQLite database (e.g. several tables were added along the way, and some modified, initially we started with the table that has user management).</p>
             <p>Authentication and sessions - implementing login/register functionalities and maintaining user sessions.</p>
-            <p>Animal management - developing pages for adding, editing and deleting animals, including media, then navigating adoptions.</p>
+            <p>Pet management - developing pages for adding, editing and deleting pets, including media, then navigating adoptions.</p>
             <p>Adoption requests and notifications - creating a mechanism for requesting and sending notifications.</p>
-            <p>Additional functionalities - CSV/JSON export, CSV import, RSS feed, HTML/CSS validation and XSS/SQL injection protection by checking all user inputs.</p>
+            <p>Additional functionalities - CSV/JSON export, CSV/JSON import, RSS feed, HTML/CSS validation and XSS/SQL injection protection by checking all user inputs.</p>
             <p>Architectural diagram & documentation - creating documentation related to the project.</p>
         </section>
     </section>
 
     <section id="data-structure">
-        <h2>5. Data Structure and Sources</h2>
+        <h2 property="schema:headline">5. Data Structure and Sources</h2>
 
         <section id="database-schema">
             <h3>5.1 Database Schema</h3>
@@ -112,50 +170,162 @@
             <p>All data in the tables is provided by users through the application, where insertion is done through forms. Media resources (images, audio, video) can come from various free license sites such as Pexels or Pixabay or from a personal archive.</p>
         </section>
 
+        <section id="database-interaction">
+            <h3>5.2 Database interaction</h3>
+            <p>The backend manages all interactions with the SQLite database, and every major action performed by the user (e.g., registering, logging in, adding pets, sending requests, managing media resources, etc.) is translated into SQL queries, which will be run by PHP.</p>
+            <p>For example, when a pet is added, the PHP script that handles this adds a new row to the <b>animals</b> table and links the associated media files using foreign keys.</p>
+            <p>Other actions such as deleting a pet, updating data, managing feeding or medical history, and approving adoption requests also involve SQL operations of the <b>UPDATE</b> or <b>DELETE</b> type. Regarding security, each Backend ensures data integrity and includes protection against SQL injection through prepared statements.</p>
+        </section>
+
         <section id="media">
-            <h3>5.2 Media and Data Origins</h3>
-            <p>Media resources (images, videos, audio files) can be optionally uploaded by users while filling out the animal add form. These resources are saved locally in a folder called uploads and are associated in the database via a unique identifier (e.g. the path to the uploads file).</p>
+            <h3>5.3 Media and Data Origins</h3>
+            <p>Media resources (images, videos, audio files) can be optionally uploaded by users while filling out the pet add form. These resources are saved locally in a folder called uploads and are associated in the database via a unique identifier (e.g. the path to the uploads file).</p>
         </section>
     </section>
 
 
     <section id="features">
-        <h2>6. Application Features</h2>
+        <h2 property="schema:headline">6. Application Features</h2>
 
-        <section id="register-login">
-            <h3>6.1 Register/Login</h3>
-            <p>We allow new users to register by filling out a form with a username, email address, and password. The frontend performs validation before submission. After successful registration, the user is redirected to the login page. If authentication is successful, they are directed to the dashboard (e.g. home page), and their session remains active until they log out. If there are problems, such as duplicate emails, an error message is displayed.</p>
+        <section id="home">
+            <h3 property="schema:name">6.1 Home</h3>
+            <p>Home page contains a news feed section, showing recent adoption activity. An RSS feed is provided for users who wish to see the latest pet listings.</p>
         </section>
 
-        <section id="add-manage">
-            <h3>6.2 Add & Manage Pets</h3>
-            <p>Once authenticated, users can submit pets for adoption using a dedicated form, where they fill in details such as name, breed, pick-up address and optionally upload images, videos or audio files. We also support importing via CSV files.</p>
-            <p>Pets added by the user appear in the “My Pets” section. From there, they can edit descriptions, manage feeding schedules and medical history, update media files and permanently delete pets.</p>
+        <section id="register">
+            <h3 property="schema:name">6.2 Register</h3>
+            <p>The registration feature allows new users to create an account by providing a username, email address, and password.</p>
+            <p>The backend processes the registration request, verifies the format and completeness of the submitted data, checks for duplicate emails, and stores the new user credentials in the database, if validation is successful.</p>
+            <p>In this case if it is successfull, the user is redirected to the login page. Otherwise, an error message is displayed.</p>
         </section>
 
-        <section id="browse-request">
-            <h3>6.3 Browse & Request</h3>
-            <p>In the Browse Pets section, we display all pets available for adoption except those owned by the logged-in user. Each pet is shown as a card with its basic details. Clicking the card opens a full details page. From there, a user can submit an adoption request and the pet owner sees all requests and can choose to approve or reject them.</p>
+        <section id="add-pets">
+            <h3 property="schema:name">6.3 Add Pets</h3>
+            <p>The Add Pet feature allows logged in users to submit new pets for adoption using a form.</p>
+            <p>Users can provide details such as the pet's name, breed, pickup address, and optionally upload images, videos, or audio recordings related to the pet.</p>
+            <p>After submitting the form, the pet is added to the user's personal list and is not visible in the public Browse section.This application enforces predefined values for fields such as region and medical status, to prevent input errors and offer consistency.</p>
+            <p>The system also allows storing multiple pets at once if they are submitted via a CSV/JSON file.</p>
+        </section>
+        
+        <section id="my-pets">
+            <h3 property="schema:name">6.4 My Pets</h3>
+            <p>The My Pets section allows each user to view a list of the pets they have submitted for adoption.</p>
+            <p>Each pet appears as a card with basic information such as name and species. By clicking on a card, the user is taken to a dedicated management page for that pet.</p>
+            <p>On the pet management page, an user can:</p>
+            <ul>
+                <li>Add or update the pet's description</li>
+                <li>Manage the feeding schedule and a medical history by adding or removing entries</li>
+                <li>Edit other pet-related details such as species, media files, or adoption conditions</li>
+                <li>Permanently delete the pet from the system if needed</li>
+            </ul>
+            <p>This section gives the user full control over the visibility and content of their adoption listings.</p>
         </section>
 
-        <section id="admin">
-            <h3>6.4 Admin Panel</h3>
-            <p>The administrator has access to an additional page called panel where he can run the database initialization script, delete a pet from the database based on its ID, and export all registered animals to a csv file.</p>
+        <section id="browse-pets">
+            <h3 property="schema:name">6.5 Browse Pets</h3>
+            <p>The Browse Pets section displays a list of all pets available for adoption, excluding those added by the currently logged-in user.</p>
+            <p>Each pet is presented as a card containing basic information such as name and species. Clicking on a card opens a separate page with detailed information about that pet.</p>
+            <p>On the pet details page, the user can view relevant details. A dedicated button is available to submit an adoption request for the selected pet.</p>
+        </section>
+
+        <section id="adoption-request">
+            <h3 property="schema:name">6.6 Adoption Request</h3>
+            <p>Users can request to adopt a pet by clicking the request button on a pet's detail page.</p>
+            <p>Once submitted, the request becomes visible to the pet owner, who can choose to accept or decline it. Only one request can be approved per pet.</p>
+            <p>The requester receives a notification <b>only if their request is explicitly approved or rejected</b>. If the pet is adopted by someone else and their own request remains unanswered, no notification is sent.</p>
+            <p>Approved requests result in the pet being removed from the system and no longer visible in Browse Pets.</p>
+        </section>
+
+        <section id="about">
+            <h3 property="schema:name">6.7 About</h3>
+            <p>This page contains links to documentation, demo video, license, diagrams.</p>
+        </section>
+
+        <section id="admin-panel">
+            <h3 property="schema:name">6.8 Admin Panel</h3>
+            <p>From this panel, the administrator can:</p>
+            <ul>
+                <li>Run the database initialization script</li>
+                <li>Manually delete any pet by entering its ID</li>
+                <li>Export all pet records to a CSV/JSON file</li>
+            </ul>
         </section>
     </section>
 
 
     <section id="demonstration">
-        <h2>7. Demonstration</h2>
+        <h2 property="schema:headline">7. Demonstration</h2>
         <p>Below you can find a short video demonstration of all the features available in the web application:</p>
-        <a href="demovideo.mp4" target="_blank">Demo Video</a>
+        <a href="https://www.youtube.com/watch?v=xqpn2t3TMRI" target="_blank" property="schema:url">Demo Video</a>
     </section>
 
 
     <section id="license">
-        <h2>8. License</h2>
-        <p>The project was made under the MIT license, more details can be found below:</p>
+        <h2 property="schema:headline">8. License</h2>
+        <p property="schema:license">The project was made under the MIT license, more details can be found below:</p>
         <a href="LICENSE" target="_blank">LICENSE</a>
+    </section>
+
+
+    <section id="reference">
+        <h2 property="schema:headline">9. References</h2>
+        <a href="https://gist.github.com/bladeSk/6294d3266370868601a7d2e50285dbf5" target="_blank">SQLite-PHP-quickstart</a><br>
+        <a href="https://www.geeksforgeeks.org/javascript-fetch-method/" target="_blank">Fetch API in JavaScript</a><br>
+        <a href="http://www.tizag.com/phpT/fileupload.php" target="_blank">File Upload in PHP</a><br>
+        <a href="https://www.geeksforgeeks.org/php/php-_files-array-http-file-upload-variables/" target="_blank">PHP $_FILES Array</a><br>
+        <a href="https://www.pexels.com/" target="_blank">Pexels - media resources</a><br>
+        <a href="https://pixabay.com/" target="_blank">Pixabay - media resources</a><br>
+        <a href="https://www.svgrepo.com" target="_blank">SVG Repo - icons under PD license</a><br>
+        <a href="https://icon666.com" target="_blank">Icon666 - icons under PD license</a><br>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions" target="_blank">Regular expressions</a><br>
+        <a href="https://www.w3schools.com/xml/xml_rss.asp" target="_blank">XML RSS - documentation</a><br>
+        <a href="https://www.php.net/manual/en/class.domdocument.php" target="_blank">PHP XML documentation DOM</a><br>
+        <a href="https://mehulgohil.com/blog/export-data-to-csv-using-php/" target="_blank">CSV(export)- documentation</a><br>
+        <a href="https://www.cloudways.com/blog/import-export-csv-using-php-and-mysql/" target="_blank">CSV(import) - documentation</a><br>
+        <a href="https://www.alibabacloud.com/blog/how-to-return-mysql-data-in-json-format-with-php-on-ubuntu-20-04-server_598024" target="_blank">JSON - documentation</a><br>
+        <a href="https://choosealicense.com/licenses/mit/" target="_blank">License - text</a><br>
+        <a href="https://schema.org/docs/schemas.html" target="_blank">Organization of Schemas</a><br>
+        <a href="https://www.lucidchart.com/pages" target="_blank">Lucidchart - User diagram</a><br>
+        <a href="https://drawio-app.com/" target="_blank">Drawio - UML diagram</a><br>
+        <a href="https://logo.com/" target="_blank">Logo.com - used to create logo</a><br>
+        <a href="https://validator.w3.org/" target="_blank">HTML validator</a><br>
+        <a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS validator</a><br>
+        <a href="https://validator.w3.org/feed/" target="_blank">RSS feed validator</a><br>
+        <a href="https://www.w3schools.com/html/" target="_blank">W3Schools - HTML</a><br>
+        <a href="https://www.w3schools.com/css/" target="_blank">W3Schools - CSS</a><br>
+        <a href="https://www.w3schools.com/js/" target="_blank">W3Schools - JS</a><br>
+        <a href="https://www.w3schools.com/php/" target="_blank">W3Schools - PHP</a><br>
+        <a href="https://developer.mozilla.org/en-US/" target="_blank">Mozilla Developer Network</a><br>
+        <a href="https://github.com/rick4470/IEEE-SRS-Tempate#readme" target="_blank">IEEE - (SRS) Template</a><br>
+        <a href="https://edu.info.uaic.ro/web-technologies/index.html" target="_blank">UAIC Web Technologies 2025</a><br>
+        <a href="https://profs.info.uaic.ro/cosmin.varlan/pagini/tw.html" target="_blank">Teacher's page - documentation</a><br>
+    </section>
+
+
+    <section id="authors">
+        <h2>10. Authors</h2>
+        <p>The following people contributed to the project:</p>
+        <ul>
+            <li typeof="schema:Person">
+                <span property="schema:name">Iftime Cristian-Laurentiu</span>
+            </li>
+            <li typeof="schema:Person">
+                <span property="schema:name">Radu-Barb Claudiu-Nicolae</span>
+            </li>
+        </ul>
+    </section>
+
+
+    <section id="validation">
+        <h2 property="schema:headline">11. Validation</h2>
+        <p>This document follows the <b>Scholarly HTML</b> specification format, using semantic annotations from <b>Schema.org</b>.</p>
+        <p>All HTML and CSS files have been validated using the W3C Markup Validator and CSS Validator tools. In addition, the RSS feed has been verified using the RSS Feed Validator tool.</p>
+    </section>
+    
+
+    <section id="acknowledgements">
+        <h2 property="schema:headline">12. Acknowledgements</h2>
+        <p>We would like to thank Professor Cosmin Vârlan for the feedback provided to this project and the materials provided, as well as Professor Sabin-Corneliu Buraga for the courses he taught.</p>
     </section>
 
     </div>

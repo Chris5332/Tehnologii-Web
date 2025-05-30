@@ -62,6 +62,7 @@ html, body{
 
 .login-class button:hover{
     background-color: teal;
+    transform: scale(1.1);
 }
 
 .login-class input{
@@ -73,6 +74,18 @@ html, body{
     font-size: large;
     padding-left: 5%;
     padding-right: 5%;
+    transition: 0.2s;
+}
+
+.login-class input:hover{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+.login-class input:focus{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
 }
 
 .login-class form{
@@ -114,6 +127,7 @@ html, body{
 .register-class button:hover{
     background-color: teal;
     color: white;
+    transform: scale(1.1);
 }
 
 @media only screen and (max-width: 821px)
@@ -135,7 +149,7 @@ html, body{
     }
 
     .logo-header p{
-        font-size: medium;
+        font-size: x-large;
     }
 
     .login-class{

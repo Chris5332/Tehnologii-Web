@@ -1,6 +1,9 @@
 # PoW - Pet Adoption on Web
 PoW is a SPA-type web application that manages the adoption of pets.
 
+This README file is structured according to the IEEE Software Requirements Specification (SRS) template.
+For a complete and improved version of the documentation, please see the `scholarly.html` file.
+
 # Table of Contents
 
 * [1. Introduction](#1-introduction)
@@ -50,7 +53,7 @@ This document follows a structured format inspired by the IEEE Software Requirem
 The following style guidelines are used consistently throughout:
 
 - **Bold** is used to highlight important terms and system components (e.g., **PoW – Pet Adoption on Web**).
-- *Italic* is used for emphasis or to clarify meaning.
+- *Italic* is used to clarify meanings.
 - Monospace `code` is used for technical terms, file names, etc.
 
 ### 1.3 Intended Audience and Reading Suggestions
@@ -59,38 +62,50 @@ This document is intended for evaluators and students who wish to understand the
 
 ### 1.4 Application Scope
 
-PoW (Pet Adoption on Web) is a single-page web application (SPA), developed to facilitate animal adoption in the online environment. Its purpose is to allow interaction between animal owners and potential adopters, through the platform.
+PoW (Pet Adoption on Web) is a single-page web application (SPA), developed to facilitate pet adoption in the online environment. Its purpose is to allow interaction between pet owners and potential adopters, through the platform.
 
-The application allows user registration, adding animals available for adoption, browsing through offers, sending adoption requests and managing them. Access to functionalities differs depending on the user's role (regular user or administrator).
+The application allows user registration, adding pets available for adoption, browsing through offers, sending adoption requests and managing them. Access to functionalities differs depending on the user's role (regular user or administrator).
 
-PoW also includes functionalities such as: uploading media files (images, videos, audio), data export (CSV/JSON), RSS feed, as well as an administrative interface. The platform is also responsive, compatible on the mobile side.
+PoW also includes functionalities such as: uploading media files (images, videos, audio), data export/import (CSV/JSON), RSS feed, as well as an administrative interface. The platform is also responsive, compatible on the mobile side.
 
 ### 1.5 References
 
 The following references were used during the design, development, and documentation of the PoW web application:
 
-- IEEE Software Requirements Specification (SRS) Template – for structuring this document
-  [https://github.com/rick4470/IEEE-SRS-Tempate#readme](https://github.com/rick4470/IEEE-SRS-Tempate#readme)
-- UAIC Web Technologies 2025 official requirements and course materials –  
-  [https://edu.info.uaic.ro/web-technologies/index.html](https://edu.info.uaic.ro/web-technologies/index.html)
+- [SQLite-PHP Quickstart](https://gist.github.com/bladeSk/6294d3266370868601a7d2e50285dbf5)
+- [Fetch API in JavaScript](https://www.geeksforgeeks.org/javascript-fetch-method/)
+- [File Upload in PHP](http://www.tizag.com/phpT/fileupload.php)
+- [PHP $_FILES Array](https://www.geeksforgeeks.org/php/php-_files-array-http-file-upload-variables/)
+- **Media resources** used for pets:
+  - [Pexels](https://www.pexels.com)
+  - [Pixabay](https://pixabay.com)
+- **Icons** under public domain license:
+  - [SVG Repo](https://www.svgrepo.com)
+  - [Icon666](https://icon666.com)
+- [Regular expressions – MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
+- [XML RSS – documentation](https://www.w3schools.com/xml/xml_rss.asp)
+- [PHP XML documentation DOM](https://www.php.net/manual/en/class.domdocument.php)
+- [CSV export – documentation](https://mehulgohil.com/blog/export-data-to-csv-using-php/)
+- [CSV import – documentation](https://www.cloudways.com/blog/import-export-csv-using-php-and-mysql/)
+- [JSON – documentation](https://www.alibabacloud.com/blog/how-to-return-mysql-data-in-json-format-with-php-on-ubuntu-20-04-server_598024)
+- [MIT License – license text](https://choosealicense.com/licenses/mit/)
+- [Schema.org – Organization of Schemas](https://schema.org/docs/schemas.html)
+- [Lucidchart – User diagram](https://www.lucidchart.com/pages)
+- [Drawio – UML diagram](https://drawio-app.com/)
+- [Logo.com - used to create logo](https://logo.com/)
+- W3C code validation tools:
+  - [HTML Validator](https://validator.w3.org/)
+  - [CSS Validator](https://jigsaw.w3.org/css-validator/)
+  - [RSS feed Validator](https://validator.w3.org/feed/)
 - W3Schools documentation:
   - [HTML](https://www.w3schools.com/html/)
   - [CSS](https://www.w3schools.com/css/)
   - [JavaScript](https://www.w3schools.com/js/)
   - [PHP](https://www.w3schools.com/php/)
-- Mozilla Developer Network (MDN) documentation – [https://developer.mozilla.org/](https://developer.mozilla.org/)
-- NoDesign.dev – UI inspiration – [https://www.nodesign.dev](https://www.nodesign.dev)
-- **Media resources** used for animals:
-  - Pexels – [https://www.pexels.com](https://www.pexels.com)
-  - Pixabay – [https://pixabay.com](https://pixabay.com)
-- **Icons** under public domain license:
-  - SVG Repo – [https://www.svgrepo.com](https://www.svgrepo.com)
-  - Icon666 – [https://icon666.com](https://icon666.com)
-- W3C code validation tools:
-  - [HTML Validator](https://validator.w3.org/)
-  - [CSS Validator](https://jigsaw.w3.org/css-validator/)
-- License text:
-  - [MIT license](https://choosealicense.com/licenses/mit/)
+- [Mozilla Developer Network](https://developer.mozilla.org/en-US/)
+- [IEEE Software Requirements Specification (SRS) Template](https://github.com/rick4470/IEEE-SRS-Tempate#readme)
+- [UAIC Web Technologies 2025](https://edu.info.uaic.ro/web-technologies/index.html)
+- [Teacher's page – documentation](https://profs.info.uaic.ro/cosmin.varlan/pagini/tw.html)
 
 ## 2. Overall Description
 
@@ -100,9 +115,14 @@ PoW is a single-page web application developed for educational purposes. It cons
 
 All logic is handled internally without requiring integration with external systems or third-party services.
 
-The architecture of PoW is illustrated below using a C4 model diagram (Levels 1 & 2), created with [draw.io](https://app.diagrams.net):
+The architecture and user interaction within the PoW application are illustrated below. The C4 diagrams (Levels 1 & 2) provide system-level context, while the User Flow Diagram outlines frontend interactions and user actions:
 
-![C4 Diagram – System Context and Container](c4diagram.png)
+- **C4 Diagram** – created with [draw.io](https://app.diagrams.net)  
+  ![C4 Diagram – System Context and Container](c4diagram.png)
+
+- **User Flow Diagram** – created with [Lucidchart](https://www.lucidchart.com)  
+  ![User Flow Diagram](assets/userflowdiagram.png)
+
 
 ### 2.2 Product Functions
 
@@ -116,14 +136,14 @@ The main functionalities of this application are:
 - Automatically removing pets upon adoption approval
 - Viewing system notifications related to requests
 - Accessing an admin panel (for administrators only)
-- Exporting data in CSV and JSON formats
+- Exporting/importing data in CSV and JSON formats
 - Generating an RSS feed with recent or popular adoption offers
 - Responsive interface accessible from both desktop and mobile devices
 
 ### 2.3 Operating Environment
 
 - **Frontend compatibility:**
-  - Responsive design supports desktop and mobile devices
+  - Responsive design for both desktop and mobile devices
 - **Backend environment:**
   - Web server with PHP and SQLite 3
   - Tested using XAMPP (Apache + PHP + SQLite) in a local development setup
@@ -145,7 +165,9 @@ The following academic constraints have been respected during the development of
 
 Basic user guidance is provided through the structure of the application.
 
-A demonstration video is available in the `ABOUT` page, showing how to use the main features of the application.
+A demonstration video is available below, showing how to use the main features of the application.
+
+[Demo Video](https://www.youtube.com/watch?v=xqpn2t3TMRI)
 
 ### 2.6 Assumptions and Dependencies
 
@@ -186,9 +208,9 @@ Home page contains a news feed section, showing recent adoption activity. An RSS
 
 The registration feature allows new users to create an account by providing a username, email address, and password.
 
-Client-side validation ensures that input fields are correctly filled before submission. The backend processes the registration request, checks for duplicate emails, and stores the new user credentials in the database.
+The backend processes the registration request, verifies the format and completeness of the submitted data, checks for duplicate emails, and stores the new user credentials in the database, if validation is successful.
 
-If registration is successful, the user is redirected to the login page. Otherwise, an error message is displayed.
+In this case if it is successfull, the user is redirected to the login page. Otherwise, an error message is displayed.
 
 ### 4.3 Add Pet
 
@@ -198,7 +220,7 @@ Users can provide details such as the pet's name, breed, pickup address, and opt
 
 After submitting the form, the pet is added to the user's personal list and is not visible in the public `Browse` section.
 
-The system also allows storing multiple pets at once if they are submitted via a CSV file.
+The system also allows storing multiple pets at once if they are submitted via a CSV/JSON file.
 
 ### 4.4 My Pets
 
@@ -235,7 +257,7 @@ Approved requests result in the pet being removed from the system and no longer 
 
 ### 4.7 About
 
-This page contains links to documentation, video demo, license, C4 diagram.
+This page contains links to documentation, video demo, license, diagrams.
 
 ### 4.8 Admin Panel
 
@@ -243,7 +265,7 @@ From this panel, the administrator can:
 
 - Run the database initialization script
 - Manually delete any pet by entering its ID
-- Export all pet records to a CSV file
+- Export all pet records to a CSV/JSON file
 
 ## 5. Additional Information
 
@@ -256,7 +278,7 @@ A list of used technologies:
 - PHP – for backend logic, session management, and data processing
 - SQLite – as the local database engine
 - RSS – for generating a feed of new adoption listings
-- CSV/JSON – for data export
+- CSV/JSON – for data export/import
 - XAMPP – as the development environment (Apache + PHP + SQLite)
 
 ### 5.2 Authors

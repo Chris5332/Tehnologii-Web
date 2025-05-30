@@ -66,7 +66,11 @@ fetch("php/user_status.php").then(response => response.json())
         }
 
         if(!result.is_admin)
-            document.getElementById("panel-btn").style.display="none";
+        {
+            const panelBtn=document.getElementById("panel-btn");
+            if(panelBtn)
+                panelBtn.style.display = "none";
+        }
     }
     else
         pageNavigation("login");// redirect if not logged in

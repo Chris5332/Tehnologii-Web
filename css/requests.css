@@ -26,6 +26,16 @@
     margin-left: 5vw;
     margin-right: 5vw;
     border-radius: 5px;
+    transition: 0.2s;
+}
+
+.req-card:hover{
+    background-color: rgb(226, 227, 221);
+    border: 3px dashed rgb(54, 207, 135);
+}
+
+.req-card:hover .container-texts {
+    font-size: larger;
 }
 
 .button-accept,.button-remove-notification{
@@ -36,6 +46,7 @@
     margin-bottom: 1vh;
     border: none;
     background-color: rgb(54, 207, 135);
+    background: linear-gradient(to right, rgb(54, 207, 135), teal);
     border-radius: 5px;
     cursor: pointer;
     color: white;
@@ -52,6 +63,8 @@
 
 .button-accept:hover,.button-remove-notification:hover{
     background-color: teal;
+    background: linear-gradient(to left, rgb(54, 207, 135), teal);
+    transform: scale(1.01);
 }
 
 .button-decline{
@@ -61,6 +74,7 @@
     margin-bottom: 1vh;
     border: none;
     background-color: rgb(255, 67, 67);
+    background: linear-gradient(to left, rgb(255, 67, 67), darkred);
     border-radius: 5px;
     cursor: pointer;
     color: white;
@@ -73,6 +87,8 @@
 
 .button-decline:hover{
     background-color: darkred;
+    background: linear-gradient(to right, rgb(255, 67, 67), darkred);
+    transform: scale(1.01);
 }
 
 .container-texts {
@@ -93,6 +109,19 @@
     margin-left: 5vw;
     margin-bottom: 2vh;
     text-align: center;
+    transition: 0.2s;
+}
+
+#filter-select:hover{
+    transform: scale(1.05);
+    background-color: rgb(226, 227, 221);
+    outline-color: rgb(54, 207, 135);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+#filter-select:focus{
+    transform: scale(1.05);
+    border: 2px solid rgb(54, 207, 135);
 }
 
 @media only screen and (max-width: 850px)
