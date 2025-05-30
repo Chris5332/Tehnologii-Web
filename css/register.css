@@ -53,11 +53,20 @@ html, body{
     color: rgb(32, 33, 33);
     font-size: large;
     margin-bottom: 1%;
+    transition: 0.2s;
+}
+
+.family-label:hover{
+    transform: scale(1.1);
 }
 
 .family-label input[type="checkbox"]{
-    width: 2vw;
-    height: 2vh;
+    width: 3vw;
+    height: 3vh;
+}
+
+.family-label input[type="checkbox"]:hover{
+    transform: scale(1.1);
 }
 
 .register-class button{
@@ -81,6 +90,7 @@ html, body{
 
 .register-class button:hover{
     background-color: teal;
+    transform: scale(1.1);
 }
 
 .register-class input{
@@ -92,6 +102,18 @@ html, body{
     font-size: large;
     padding-left: 5%;
     padding-right: 5%;
+    transition: 0.2s;
+}
+
+.register-class input:hover{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+.register-class input:focus{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
 }
 
 .register-class form{
@@ -129,6 +151,7 @@ html, body{
 .login-class button:hover{
     background-color: teal;
     color: white;
+    transform: scale(1.1);
 }
 
 @media only screen and (max-width: 821px)
@@ -176,7 +199,9 @@ html, body{
 
     .family-label input[type="checkbox"]{
         width: 3vw;
-        height: 3vh;
+        height: 2vh;
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 
 }

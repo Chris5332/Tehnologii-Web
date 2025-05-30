@@ -12,6 +12,7 @@
     height: 9vh;
     width: 25vw;
     background-color: rgb(54, 207, 135);
+    background: linear-gradient(to right, rgb(54, 207, 135), teal);
     color: white;
     border-radius: 50px;
     border: 0px;
@@ -21,15 +22,19 @@
 }
 
 .panel-content button:hover{
+    background: linear-gradient(to left, rgb(54, 207, 135), teal);
     background-color: teal;
+    transform: scale(1.1);
 }
 
 #delete-btn{
     background-color: rgb(255, 67, 67);
+    background: linear-gradient(to right, rgb(255, 67, 67), darkred);
 }
 
 #delete-btn:hover{
     background-color: darkred;
+    background: linear-gradient(to left, rgb(255, 67, 67), darkred);
 }
 
 #deletePet-form{
@@ -48,6 +53,22 @@
     margin-top: 10vh;
     margin-bottom: 5vh;
     text-align: center;
+    transition: 0.2s;
+}
+
+.panel-content form input[type="text"]:hover{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+.panel-content form input[type="text"]:focus{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
+}
+
+#export-csv-btn{
+    margin-bottom: 5vh;
 }
 
 @media only screen and (max-width: 821px)

@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     background-color: rgb(54, 207, 135);
+    background: linear-gradient(to right, rgb(54, 207, 135), teal);
     align-items: center;
     color: white;
     font-size: large;
@@ -10,12 +11,22 @@
     position: fixed;
     height: 8vh;
     overflow: hidden;
+    transition: 0.2s;
+}
+
+.footer-class:hover{
+    font-size: larger;
 }
 
 .footer-left img{
     height: 7vh;
     width: 10vh;
     border-radius: 14%;
+    transition: 0.2s;
+}
+
+.footer-class:hover .footer-left img {
+    transform: scale(1.05);
 }
 
 .footer-left,.footer-center,.footer-right{

@@ -29,11 +29,13 @@
     text-decoration: none;
     color: rgb(54, 207, 135);
     font-size: 25px;
+    transition: 0.3s;
 }
 
 .link-class a:hover{
     color: rgb(54, 207, 135);
     background-color: rgb(51, 51, 51);
+    font-size: 28px;
 }
 
 .link-class li {

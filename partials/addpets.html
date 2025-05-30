@@ -8,7 +8,7 @@
             <input type="text" placeholder="Name" id="name-input" name="name">
 
             <p>Select its birthdate</p>
-            <input type="date" placeholder="Birth" id="birth-input" name="birth">
+            <input type="date" id="birth-input" name="birth">
 
             <p>Enter its species</p>
             <input type="text" placeholder="Species" id="species-input" name="species">
@@ -52,18 +52,19 @@
 
             <label class="group-label">
                 <input type="checkbox" id="group-checkbox" name="is_group" value="1">
-                <label for="group-checkbox">Group of animals?</label>
+                Group of animals?
             </label>
 
-            <button type="submit" id="addpets">Add Pet</button>
+            <button type="submit" id="addpetsbtn">Add Pet</button>
         </form>
+
         <hr>
-        <form id="import-form" method="post" action="php/import_animals_csv.php" enctype="multipart/form-data">
+        <form id="import-form-csv" method="post" action="php/import_animals_csv.php" enctype="multipart/form-data">
             <p>Import animals from a CSV file</p>
-            <p id="valid-format">(Valid format is: Name,Birth Date,Species,Breed,Health Status,Region,Pickup Address,Group)</p>
+            <p id="valid-format1">(Valid format is: Name,Birth Date,Species,Breed,Health Status,Region,Pickup Address,Group)</p>
             <input type="file" name="csv_file" id="csv-input" accept=".csv" required>
             <button type="submit" id="csvaddpets">Add Pets</button>
-            <p id="valid-format">Restrictions:</p>
+            <p id="valid-format2">Restrictions:</p>
             <ol>
                 <li>Don't use a header for CSV file.</li>
                 <li>Name: must start with a capital letter, contain only letters and spaces, and be 2..15 characters long.</li>
@@ -74,6 +75,30 @@
                 <li>Region: must be one from [Botosani, Bacau, Galati, Iasi, Neamt, Suceava].</li>
                 <li>Pickup Address: must start with a capital letter, contain only letters and spaces, and be 4..40 characters long.</li>
                 <li>Group: must be one from [0, 1].</li>
+            </ol>
+        </form>
+
+        <hr>
+        <form id="import-form-json" method="post" action="php/import_animals_json.php" enctype="multipart/form-data">
+            <p>Import animals from a JSON file</p>
+            <p id="valid-format3">(The same field restrictions apply as for CSV files.)</p>
+            <input type="file" name="json_file" id="json-input" accept=".json" required>
+            <button type="submit" id="jsonaddpets">Add Pets</button>
+            <p id="valid-format4">Accepted JSON format example:</p>
+            <ol>
+                <li>[</li>
+                <li><span class="tabs1">{</span></li>
+                <li><span class="tabs2">"name": "Lola",</span></li>
+                <li><span class="tabs2">"birth_date": "2020-01-15",</span></li>
+                <li><span class="tabs2">"species": "Dog",</span></li>
+                <li><span class="tabs2">"breed": "Labrador",</span></li>
+                <li><span class="tabs2">"health_status": "healthy",</span></li>
+                <li><span class="tabs2">"region": "Iasi",</span></li>
+                <li><span class="tabs2">"pickup_address": "Street nr. 10",</span></li>
+                <li><span class="tabs2">"is_group": 0</span></li>
+                <li><span class="tabs1">},</span></li>
+                <li><span class="tabs1">...</li>
+                <li>]</li>
             </ol>
         </form>
     </div>

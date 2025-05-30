@@ -28,8 +28,12 @@ $non_imported=0;
 
 while(($data = fgetcsv($file, 10000, ",")) !== FALSE)
 {
-    if(count($data)!=8)
+    if(!is_array($data) || count($data)!==8)
+    {
+        $non_imported++;
         continue;
+    }
+        
 
     $errors=0;
 

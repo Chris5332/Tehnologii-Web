@@ -29,6 +29,20 @@
     padding-left: 5%;
     padding-right: 5%;
     color: rgb(32, 33, 33);
+    transition: 0.2s;
+}
+
+.addpets-class input[type="text"]:hover,
+.addpets-class input[type="date"]:hover{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+.addpets-class input[type="text"]:focus,
+.addpets-class input[type="date"]:focus{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
 }
 
 .addpets-class button{
@@ -36,16 +50,19 @@
     height: 9vh;
     width: 20vw;
     background-color: rgb(54, 207, 135);
+    background: linear-gradient(to right, rgb(54, 207, 135), teal);
     color: white;
     border-radius: 50px;
     border: 0px;
     font-size: medium;
     font-weight: bold;
-    transition: 0.2s;
+    transition: transform 0.2s ease;
 }
 
 .addpets-class button:hover{
     background-color: teal;
+    background: linear-gradient(to left, rgb(54, 207, 135), teal);
+    transform: scale(1.1);
 }
 
 .group-label{
@@ -55,11 +72,21 @@
     font-size: large;
     margin-top: 5%;
     margin-bottom: 5%;
+    transition: 0.2s;
+}
+
+.group-label:hover{
+    transform: scale(1.1);
 }
 
 .group-label input[type="checkbox"]{
     width: 3vw;
     height: 3vh;
+    transition: 0.2s;
+}
+
+.group-label input[type="checkbox"]:hover{
+    transform: scale(1.1);
 }
 
 .group-label label{
@@ -76,6 +103,18 @@
     font-size: large;
     padding-left: 5%;
     color: rgb(32, 33, 33);
+    transition: 0.2s;
+}
+
+.addpets-class select:hover{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+.addpets-class select:focus{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.05);
 }
 
 .addpets-class input[type="file"]{
@@ -91,6 +130,17 @@
     text-align: center;
     color: rgb(32, 33, 33);
     line-height: 9vh;
+    transition: 0.2s;
+}
+
+.addpets-class input[type="file"]:hover{
+    outline-color: rgb(54, 207, 135);
+    transform: scale(1.02);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+.addpets-class input[type="file"]:focus{
+    outline-color: rgb(54, 207, 135);
 }
 
 .addpets-class input[type="file"]::file-selector-button{
@@ -98,6 +148,7 @@
     background-color: transparent;
     border: none;
     color: rgb(32, 33, 33);
+    transition: 0.2s;
 }
 
 .addpets-class button,.addpets-class input,.addpets-class select{
@@ -108,18 +159,35 @@
     font-size: larger;
 }
 
-#valid-format{
+#valid-format1,#valid-format2,#valid-format3,#valid-format4{
     font-size: medium;
     color: rgba(32, 33, 33, 0.353);
     margin-top: 5vh;
 }
 
-#import-form ol{
+#import-form-csv ol{
     list-style-position: inside;
     text-align: start;
     font-size: medium;
     color: rgba(32, 33, 33, 0.353);
     margin-right: 5vh;
+}
+
+#import-form-json ol{
+    list-style-position: inside;
+    list-style-type: none;
+    text-align: start;
+    font-size: medium;
+    color: rgba(32, 33, 33, 0.353);
+    margin-right: 5vh;
+}
+
+.tabs1{
+    margin-left: 5vh;
+}
+
+.tabs2{
+    margin-left: 10vh;
 }
 
 .photo-list, .video-list, .audio-list{
@@ -130,6 +198,12 @@
     border-radius: 25px;
     border: 0px;
     text-align: start;
+    transition: 0.2s;
+}
+
+.photo-list:hover, .video-list:hover, .audio-list:hover{
+    font-size: 20px;
+    border: 2px dashed rgb(54, 207, 135);
 }
 
 .photo-list li, .video-list li, .audio-list li{
@@ -162,6 +236,13 @@
 
     .photo-list, .video-list, .audio-list{
         width: 84vw;
+    }
+
+    .group-label input[type="checkbox"]{
+        width: 3vw;
+        height: 2vh;
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 
 }

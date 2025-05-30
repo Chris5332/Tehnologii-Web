@@ -66,7 +66,11 @@ fetch("php/user_status.php").then(response => response.json())
         }
 
         if(!result.is_admin)
-            document.getElementById("panel-btn").style.display="none";
+        {
+            const panelBtn=document.getElementById("panel-btn");
+            if(panelBtn)
+                panelBtn.style.display = "none";
+        }
     }
     else
         pageNavigation("login");// redirect if not logged in
@@ -152,10 +156,10 @@ document.getElementById("addpets-form").addEventListener("submit", function(even
     .catch(error => console.log('Error adding pets: ', error));
 });
 
-document.getElementById("import-form").addEventListener("submit", function(event) {
+document.getElementById("import-form-csv").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const form=document.getElementById("import-form");
+    const form=document.getElementById("import-form-csv");
     const formData= new FormData(form);
 
     fetch('php/import_animals_csv.php', {
@@ -166,7 +170,27 @@ document.getElementById("import-form").addEventListener("submit", function(event
         if(result.success)
         {
             alert(result.message);
-            location.reload();
+        }
+        else if(result.errors)
+            alert(result.errors.join("\n"));
+    })
+    .catch(error => console.log('Error importing pets: ', error));
+});
+
+document.getElementById("import-form-json").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const form=document.getElementById("import-form-json");
+    const formData= new FormData(form);
+
+    fetch('php/import_animals_json.php', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.json())
+    .then(result => {
+        if(result.success)
+        {
+            alert(result.message);
         }
         else if(result.errors)
             alert(result.errors.join("\n"));

@@ -26,17 +26,33 @@
     margin-left: 5vw;
     margin-right: 5vw;
     border-radius: 5px;
+    transition: 0.2s;
+}
+
+.pet-card:hover{
+    background-color: rgb(226, 227, 221);
+    border: 3px dashed rgb(54, 207, 135);
+}
+
+.pet-card:hover .container-texts {
+    font-size: larger;
 }
 
 .pet-img{
-    height: 33vh;
+    height: 50vh;
     width: 34vw;
-    max-width: 187px;
+    max-width: 100%;
     border-top-left-radius: 10%;
     padding-left: 1vh;
     padding-top: 1vh;
     padding-bottom: 1vh;
     margin-right: 5vh;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.pet-img:hover{
+    transform: scale(0.98);
 }
 
 .button-view{
@@ -46,6 +62,7 @@
     margin-bottom: 1vh;
     border: none;
     background-color: rgb(54, 207, 135);
+    background: linear-gradient(to bottom, rgb(54, 207, 135), teal);
     cursor: pointer;
     color: white;
     display: flex;
@@ -59,11 +76,14 @@
 
 .button-view:hover{
     background-color: teal;
+    background: linear-gradient(to top, rgb(54, 207, 135), teal);
+    transform: scale(0.98);
 }
 
 .container-texts {
     color: rgb(32, 33, 33);
     font-size: large;
+    transition: 0.3s;
 }
 
 .container-texts p:first-child{
@@ -84,6 +104,19 @@
     margin-left: 5vw;
     margin-bottom: 2vh;
     text-align: center;
+    transition: 0.2s;
+}
+
+#filter-select:hover{
+    transform: scale(1.05);
+    background-color: rgb(226, 227, 221);
+    outline-color: rgb(54, 207, 135);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+#filter-select:focus{
+    transform: scale(1.05);
+    border: 2px solid rgb(54, 207, 135);
 }
 
 @media only screen and (max-width: 600px)
@@ -93,9 +126,9 @@
     }
 
     .pet-img{
-        height: 30vh;
+        height: auto;
         width: auto;
-        max-width: 90vw;
+        max-width: 100%;
         margin-right: 0vh;
         padding-right: 1vh;
     }

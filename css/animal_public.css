@@ -65,6 +65,7 @@
     height: 5vh;
     width: 25vw;
     background-color: rgb(54, 207, 135);
+    background: linear-gradient(to right, rgb(54, 207, 135), teal);
     border-radius: 50px;
     border: 0px;
     font-size: 20px;
@@ -75,12 +76,19 @@
 
 #buttonLeft,
 #buttonRight{
-    width: 48vw;
+    width: 90vw;
     font-size: 30px;
+}
+
+#buttonLeft:hover,
+#buttonRight:hover{
+    transform: scale(1.02);
 }
 
 .slideShowImages button:hover{
     background-color:teal;
+    background: linear-gradient(to left, rgb(54, 207, 135), teal);
+    transform: scale(1.05);
 }
 
 #request-btn{
@@ -90,10 +98,12 @@
     color: white;
     margin-left: 6vh;
     margin-bottom: 3vh;
+    margin-top: 3vh;
     cursor: pointer;
     height: 5vh;
     width: 25vw;
     background-color: rgb(54, 207, 135);
+    background: linear-gradient(to right, rgb(54, 207, 135), teal);
     border-radius: 50px;
     border: 0px;
     font-size: 20px;
@@ -103,6 +113,8 @@
 
 #request-btn:hover{
     background-color: teal;
+    background: linear-gradient(to left, rgb(54, 207, 135), teal);
+    transform: scale(1.05);
 }
 
 #warnText-field{
@@ -133,34 +145,51 @@
 
 #noBtn:hover,#yesBtn:hover{
     background-color: rgb(54, 207, 135);
+    transform: scale(1.05);
 }
 
-#audioItem{
+.audiosContainer-class{
     margin-left: 6vh;
     margin-top: 1vh;
     margin-bottom: 1vh;
-    border: 1px dotted rgb(54, 207, 135);
     border-radius: 50px;
+    transition: 0.2s;
 }
 
-#videoItem{
-    width: 48vw;
-    height: 40vh;
+.audiosContainer-class:hover{
+    transform: scale(1.01);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+.videosContainer-class{
+    width: 90vw;
+    height: 55vh;
     background: rgb(239,245,243);
     margin-left: 6vh;
     margin-top: 2vh;
-    border: 1px dotted rgb(54, 207, 135);
+    transition: 0.2s;
 }
 
-#imgItem{
-    width: 48vw;
-    height: 35vh;
+.videosContainer-class:hover{
+    transform: scale(1.01);
+    border: 2px dashed rgb(54, 207, 135);
+}
+
+.slideshow-image{
+    width: 90vw;
+    height: 55vh;
     background: rgb(239,245,243);
     margin-left: 6vh;
+    margin-right: 6vh;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    border: 1px dotted rgb(54, 207, 135);
     object-fit: contain;
+    transition: 0.2s;
+}
+
+.slideshow-image:hover{
+    transform: scale(1.01);
+    border: 2px dashed rgb(54, 207, 135);
 }
 
 @media only screen and (max-width: 850px)
@@ -191,20 +220,24 @@
         width: 80vw;
     }
 
-    #videoItem{
+    .videosContainer-class{
         width: 80vw;
         height: 40vh;
+        margin-left: 5vh;
+        margin-right: 5vh;
     }
 
-    #imgItem{
+    .slideshow-image{
         width: 80vw;
-        height: 35vh;
+        height: 40vh;
+        margin-left: 5vh;
+        margin-right: 5vh;
     }
 }
 
 @media only screen and (max-width: 400px)
 {
-    #audioItem{
+    .audiosContainer-class{
         width: 50vw;
     }
 }
